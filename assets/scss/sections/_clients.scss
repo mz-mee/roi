@@ -1,0 +1,92 @@
+.section-clients{
+    margin-top:-14.5rem;
+    padding:17.9rem 0 11.1rem 0;
+    background: $base;
+
+        @include tablet{
+            margin-top:-6rem;
+        }
+
+    &__container{
+       width:900px; 
+    }
+
+    &__item{
+        @include border-radius(10px);
+        width: 700px;
+        max-width: 90%;
+        margin: 0px auto;
+        margin-bottom: 6rem;
+        padding:2rem 4rem;
+        box-sizing: border-box;
+
+            @include tablet{
+                padding:2rem 0 0;
+            }    
+    }
+
+    &__content{
+        background: white;
+        text-align: center;
+        padding:3rem 4rem;
+        @include border-radiuses(10px,0px,0px,10px);
+        background: #f8f8f8;
+
+        h3{
+            font-size: 2.7rem;
+            margin-top:2rem;
+        }
+
+        p{
+            font-size: 1.7rem;
+        }
+    }
+
+    &__name{
+        background: white;
+        @include flex();
+        justify-content: center;
+        align-items: center;
+        padding:2rem;
+        @include border-radiuses(0px,10px,10px,0px);
+
+        &-img{
+
+            img{
+                @include border-radius(50%);
+            }
+        }
+
+        &-text{
+            padding-left: 2rem;
+
+            strong{
+                display: block;
+                font-size:1.7rem;
+            }
+
+            small{
+                font-size: 1.6rem;
+            }
+        }
+    }
+
+    
+
+    .swiper-pagination-bullet{
+        background: white;
+    }
+
+    .swiper-pagination-bullet-active{
+        background:white;
+    }
+
+    .swiper-button-next, .swiper-button-prev{
+        color:white;
+
+
+        &:after{
+            font-size:2.4rem;
+        }
+    }
+}

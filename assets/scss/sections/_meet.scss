@@ -1,0 +1,119 @@
+.section-meet{
+    padding:11.2rem 0 11.2rem 0;
+    
+
+    &__heading{
+        font-size:5.5rem;
+        margin-top: 0px;
+        margin-bottom: 2.8rem;
+        text-align: center;
+
+        &:before{
+            content:"new";
+            text-transform: uppercase;
+            background-image: linear-gradient(to bottom, #e36c53, #c33a29);
+            @include border-radius(5px);
+            color:white;
+            display: inline-block;
+            margin-right: 3rem;
+            padding:1.4rem 2rem;
+            padding-top:1.8rem;
+            font-size: 2rem;
+            line-height: 1rem;
+            vertical-align: 1rem;
+        }
+    }
+
+    &__text{
+        width:69.4rem;
+        max-width: 100%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    &__container{
+        @include border-radius(10px);
+        background: white;
+        padding:11.2rem 7rem;
+    }
+
+    &__points{
+        margin-top:10rem;
+        margin-bottom: 7.2rem;
+
+        @include tablet{
+            @include flex();
+        }
+        
+
+        &-item{
+            padding-bottom: 2rem;
+            width:100%;
+            box-sizing: border-box;
+
+                @include tablet{
+                    width:33.333%;
+                    text-align: center;
+                    padding:2%;
+                }
+
+            h3{
+                margin-top:0px;
+                margin-bottom:3.2rem;
+                padding-left: 30%;
+
+                    @include tablet{
+                        padding-left: 0px;
+                    }
+            }
+
+            p{
+                padding-left: 30%;
+
+                    @include tablet{
+                        padding-left: 0px;
+                    }
+            }
+            
+        }
+
+        &-content{
+            border:1px solid $darkbg;
+            @include border-radius(10px);
+            padding:3.2rem;
+            height: 100%;
+            box-sizing: border-box;
+            flex-direction: column;
+            position: relative;
+        }
+
+        &-img{
+            
+            @include flex();
+            align-items: flex-end;
+            justify-content: center;
+            margin-bottom: 2.3rem;
+            position: absolute;
+            left:2%;
+            top:50%;
+            width: 25%;
+            height: auto;
+            @include transform(0%,-50%);
+
+                @include tablet{
+                    position: relative;
+                    left:auto;
+                    top:auto;
+                    @include transform(0,0);
+                    width: auto;
+                    height:187px;
+                }   
+
+            img{
+                max-height: 100%;
+                max-width: 100%;
+            }
+        }
+
+    }
+}

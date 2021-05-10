@@ -1,0 +1,64 @@
+@font-face {
+    font-family:'Avenir';
+    font-style:normal;
+    font-weight: 400;
+    src:local('Avenir Book'),
+    local('AvenirLTPro-Book'),
+    url('../fonts/avenir-book/font.woff2') format('woff2'),
+    url('../fonts/avenir-book/font.woff') format('woff')
+   }
+
+   @font-face {
+    font-family:'Avenir';
+    font-style:normal;
+    font-weight: 600;
+    src:local('Avenir Bold'),
+    local('AvenirLTPro-Heavy'),
+    url('../fonts/avenir-bold/font.woff2') format('woff2'),
+    url('../fonts/avenir-bold/font.woff') format('woff')
+}
+
+html{
+    height: 100%;
+    min-height: 100%;
+    scroll-behavior: smooth;
+    font-family: 'Avenir',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
+    font-size: 52.5%;
+
+    @include tablet{
+        font-size: 62.5%
+    }
+
+}
+
+body,html{
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    color: $base;
+}
+
+body{
+    font-size:1.8rem;
+}
+
+h1,h2,h3{
+    font-weight: 600;
+}
+
+p{
+    line-height: 1.5;
+}
+
+h1{
+    font-size:5.5rem;
+}
+
+h2{
+    font-size:3.2rem;
+    line-height: 1.4;
+}
+
+img{
+    max-width: 100%;
+}

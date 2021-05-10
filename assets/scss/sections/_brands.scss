@@ -1,0 +1,47 @@
+.section-brands{
+    @include flex();
+    justify-content: space-between;
+    align-items: center;
+    padding:3rem 4%;
+    box-sizing: border-box;
+    max-width: 80%;
+    width:1056px;
+    margin:0 auto;
+    margin-top:-13.5rem;
+    @include border-radius(10px);
+    z-index: 2;
+    position: relative;
+    background: white;
+    flex-wrap: wrap;
+    border: solid 0.8px #e9e8f3;
+
+
+        @include mobile{
+            padding:3rem 6%;
+        }
+
+        @include tablet{
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            margin-top:-6.5rem;
+            
+        }
+
+    span.img-full{
+        width:100%;
+        text-align: center;
+
+        @include tablet{
+            width:auto;
+        }
+    }
+
+    img{
+        margin:10px;
+        display: inline-block;
+
+        @include tablet{
+            margin:0;
+        }
+    }
+}

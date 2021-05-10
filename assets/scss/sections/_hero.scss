@@ -1,0 +1,37 @@
+.section-hero{
+    background:$base;
+    color:white;
+    padding:11.7rem 0;
+
+    &__container{
+
+        @include desktop{
+            @include flex();
+            align-items: center;
+        }
+    }
+
+    &__text{
+        flex: 0 1 491px;
+
+        @include desktop{
+            padding-left: 8.8rem;
+        }
+
+        h1{
+            margin-top:2rem;
+
+            @include desktop{
+                margin-top:0;
+            }
+        }
+
+        p{
+            font-size:2rem;
+
+            @include desktop{
+                margin-bottom: 5rem;
+            }
+        }
+    }
+}
