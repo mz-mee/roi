@@ -1,5 +1,9 @@
 .section-hero{
-    background:$base;
+    background-color:#0A0E3E;
+    background-image: url('../img/hero.png'),url(../img/hero.png);
+    background-position: left center, right center;
+    background-repeat: no-repeat, no-repeat;
+    background-size:auto 100%;
     color:white;
     padding:11.7rem 0;
 

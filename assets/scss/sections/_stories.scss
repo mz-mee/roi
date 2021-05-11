@@ -44,6 +44,7 @@
             justify-content: center;
             height: 12.8rem;
             @include border-radius(16px);
+            @include boxie-shadow(-1px,8px,20px,-3px, #EEEEF2);
             
 
             img{
