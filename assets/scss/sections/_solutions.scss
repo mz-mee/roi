@@ -1,0 +1,108 @@
+.section-solutions{
+    padding:9.6rem 0;
+
+    &__heading, &__text{
+        text-align: center;
+
+    }
+
+    &__heading{
+        width:63.1rem;
+        max-width: 100%;
+        margin: 0 auto;
+        margin-bottom: 3.2rem;
+    }
+
+    &__text{
+        width:76.2rem;
+        max-width: 100%;
+        margin: 0 auto;
+        margin-bottom: 3rem;
+
+    }
+
+    .subsection-solutions{
+        padding-top: 4rem;
+
+            @include tablet{
+                padding-top: 9.6rem;
+            }
+
+        &:nth-child(2n+1){
+
+            .subsection-solutions__container{
+                @include tablet{
+                    flex-direction: row-reverse;
+                }
+            }
+
+            .subsection-solutions__pic{
+
+                @include tablet{
+                    padding-left: 0px;
+                    padding-right: 7%;
+                }
+            }
+        }
+
+        &__container{
+            @include flex();
+            align-items: center;
+            flex-direction: column-reverse;
+
+            @include tablet{
+                flex-direction: row;
+            }
+        }
+
+        &__text{
+            order: 1;
+            margin-bottom: 4rem; 
+
+                @include tablet{
+                    flex:0 1 431px;
+                    order: initial;
+                    margin-bottom: 0;
+                }
+
+            &-preheading{
+                text-transform: uppercase;
+                color: $primary;
+                font-size: 1.6rem;
+                font-weight: 600;
+
+                &::before{
+                    content:"";
+                    border-bottom: 2px solid $primary;
+                    width: 3.3rem;
+                    margin-right: 1rem;
+                    display: inline-block;
+                    vertical-align: 5px;
+                }
+            }    
+
+            h3{
+                font-size: 4.4rem;
+                margin-top:2.2rem;
+                margin-bottom: 1.6rem;
+            }
+
+            &-protip{
+                font-size:1.4rem;
+                color:$base-light;
+
+                strong{
+                    color: $primary;
+                    display: block;
+                }
+            }
+        }
+
+        &__pic{
+
+            @include tablet{
+                padding-left: 7%;
+            }
+        }
+    }
+}
