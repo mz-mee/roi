@@ -225,6 +225,127 @@
             </div>
         </section>
     </section>
+    <section role="region" class="section section-discover">
+        <div class="container">
+            <h2 class="section-discover__heading">Discover why customers love working with us</h2>
+            <div class="section-discover__points">
+                <div class="section-discover__points-item">
+                    <div class="section-discover__points-content">
+                        <h3>Fast implementation</h3>
+                        <div class="section-discover__points-image">
+                            <img src="assets/img/discover/img-fast-implementation.svg">
+                        </div>
+                        <p>Forget months long implementation processes, we get up and running within a week.</p>
+                    </div>
+                </div>
+                <div class="section-discover__points-item">
+                    <div class="section-discover__points-content">
+                        <h3>Fast implementation</h3>
+                        <div class="section-discover__points-image">
+                            <img src="assets/img/discover/img-no-commitments.svg">
+                        </div>
+                        <p>Forget months long implementation processes, we get up and running within a week.</p>
+                    </div>
+                </div>
+                <div class="section-discover__points-item">
+                    <div class="section-discover__points-content">
+                        <h3>Fast implementation</h3>
+                        <div class="section-discover__points-image">
+                            <img src="assets/img/discover/img-actionable-data.svg">
+                        </div>
+                        <p>Forget months long implementation processes, we get up and running within a week.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="section-discover__video">
+                <div class="section-discover__video-overlay">
+                    <p class="">
+                        Removing data silos <br />
+                        Turning loss into a profit<br />
+                        Revenue +20%
+                    </p>
+                    <span class="section-discover__video-play" onclick="toggleControls()";>Watch now</span>
+                </div>
+                <video id="video" class="section-discover__video-file blurred">
+                    <source src="assets/img/test.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                  </video> 
+                <svg class="blur-filter" id="svg-image-blur">
+                    <filter id="blur-effect-1">
+                        <feGaussianBlur stdDeviation="2" />
+                    </filter>
+                </svg>
+
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    <section role="region" class="section section--grey section-cta">
+        <div class="container">
+            <h2>Not sure?</h2>
+            <p>Give us a call (+ 420 721 881 783) or book a free demo. <br />
+            Our product expert will show you how easy it is to start increasing marketing ROI with the right tool.</p>
+            <a class="btn btn-primary">Book a free demo</a>
+        </div>
+    </section>
+    <section role="region" class="section section-stories">
+        <div class="container section-stories__container">
+            <div class="section-stories__text">
+                <h2>Data-driven marketers are growing ROI with ROIVENUE</h2>
+                <p><strong>180% ROI growth</strong> from affiliate channel, <strong>doubling</strong> campaign revenue, <strong>saving 15%</strong> of markerting budget while maintaining campaign revenue...our case studies abound with concrete examples.</p> 
+                <p>Learn how smart companies are making more money from campaigns.</p>
+                <a href="#" class="btn btn-primary">See success stories</a>
+            </div>
+            <div class="section-stories__logos">
+                <div class="section-stories__logos-item">
+                    <div class="section-stories__logos-content">
+                        <img src="assets/img/logos/vodafone.png">
+                    </div>
+                </div>
+                <div class="section-stories__logos-item">
+                    <div class="section-stories__logos-content">
+                        <img src="assets/img/logos/axa.png">
+                    </div>
+                </div>
+                <div class="section-stories__logos-item">
+                    <div class="section-stories__logos-content">
+                        <img src="assets/img/logos/eatstreet.png">
+                    </div>
+                </div>
+                <div class="section-stories__logos-item">
+                    <div class="section-stories__logos-content">
+                        <img src="assets/img/logos/coolstuff.png">
+                    </div>
+                </div>
+                <div class="section-stories__logos-item">
+                    <div class="section-stories__logos-content">
+                        <img src="assets/img/logos/datart.png">
+                    </div>
+                </div>
+                <div class="section-stories__logos-item">
+                    <div class="section-stories__logos-content">
+                        <img src="assets/img/logos/coolstuff.png">
+                    </div>
+                </div>
+                <div class="section-stories__logos-item">
+                    <div class="section-stories__logos-content">
+                        <img src="assets/img/logos/coolstuff.png">
+                    </div>
+                </div>
+                <div class="section-stories__logos-item">
+                    <div class="section-stories__logos-content">
+                        <img src="assets/img/logos/coolstuff.png">
+                    </div>
+                </div>
+                <div class="section-stories__logos-item">
+                    <div class="section-stories__logos-content">
+                        <img src="assets/img/logos/coolstuff.png">
+                    </div>
+                </div>
+            </div>    
+        </div>
+    </section>
 <script>
     const swiper = new Swiper('.swiper-container', {
     // Optional parameters
@@ -249,6 +370,20 @@
     },
     });
 
+</script>
+<script>
+var video = document.getElementById("video");
+
+function toggleControls() {
+  if (video.hasAttribute("controls")) {
+     video.removeAttribute("controls")   
+  } else {
+     video.setAttribute("controls","controls")   
+  }
+  video.classList.remove("blurred");
+
+  document.getElementsByClassName('section-discover__video-overlay')[0].style.visibility='hidden';
+}
 </script>
 </body>
 </html>
