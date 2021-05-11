@@ -23,7 +23,7 @@
     <section role="region" class="section section-hero">
         <div class="container section-hero__container">
             <div class="section-hero__graphic">
-                <img src="https://via.placeholder.com/573x375.png" alt="Roivenue schema">
+                <img src="assets/img/img-hero-scheme.png" alt="Roivenue schema">
             </div>
             <div class="section-hero__text">
                 <h1>Maximize your marketing ROI</h1>
@@ -375,11 +375,11 @@
 var video = document.getElementById("video");
 
 function toggleControls() {
-  if (video.hasAttribute("controls")) {
-     video.removeAttribute("controls")   
-  } else {
-     video.setAttribute("controls","controls")   
-  }
+
+   video.setAttribute("controls","controls");
+   video.play()
+   video.volume = 0.5;   
+
   video.classList.remove("blurred");
 
   document.getElementsByClassName('section-discover__video-overlay')[0].style.visibility='hidden';

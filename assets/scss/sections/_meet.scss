@@ -1,6 +1,9 @@
 .section-meet{
-    padding:11.2rem 0 11.2rem 0;
+    padding:3rem 0;
     
+    @include tablet{
+        padding:11.2rem 0;
+    }
 
     &__heading{
         font-size:5.5rem;
@@ -34,7 +37,11 @@
     &__container{
         @include border-radius(10px);
         background: white;
-        padding:11.2rem 7rem;
+        padding:4rem 2rem;
+
+            @include tablet{
+                padding:11.2rem 7rem;
+            }
     }
 
     &__points{
@@ -97,7 +104,7 @@
             left:2%;
             top:50%;
             width: 25%;
-            height: auto;
+            height: 80%;
             @include transform(0%,-50%);
 
                 @include tablet{
