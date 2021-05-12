@@ -125,7 +125,7 @@
                         while( have_rows('logo_item') ): the_row(); ?>
                             <?php
                             $logos = get_sub_field('logo_img');
-                            if( $featured_posts ): ?>
+                            if( $logos ): ?>
                                 <?php foreach( $logos as $post ): 
                                     // Setup this post for WP functions (variable must be named $post).
                                     setup_postdata($post); ?>
@@ -286,48 +286,6 @@
                 </div>
             </div>
         </section>
-        <section role="region" class="subsection-solutions">
-            <div class="container subsection-solutions__container">
-                <div class="subsection-solutions__text">
-                    <span class="subsection-solutions__text-preheading">Data integration</span>
-                    <h3>Integrate & analyze your data</h3>
-                    <p>We bring all your advertising and analytics data into one place. Our dashboard gives you an instant overview of performance as well as the ability to drill down to any metric with a few clicks. </p>
-                    <p class="subsection-solutions__text-protip"><strong>PRO Tip: Optimize for profit</strong>
-                       Set up a feed from your internal system to track marketing profit from individual campaigns in ROIVENUE.</p>
-                    <a href="" class="btn btn-secondary">Explore data integration</a>
-                </div>
-                <div class="subsection-solutions__pic">
-                    <img src="assets/img/solutions/img-solutions-data-integrations.png">
-                </div>
-            </div>
-        </section>
-        <section role="region" class="subsection-solutions">
-            <div class="container subsection-solutions__container">
-                <div class="subsection-solutions__text">
-                    <span class="subsection-solutions__text-preheading">Data-driven attribution</span>
-                    <h3>Know the real truth</h3>
-                    <p>The customer journey does not consit of a single touchpoint.</p>
-
-                    <p>Data-driven attribution enables you to understand the true contribution of each channel. It gives you the datapoints to allocate budgets for maximum performance. </p>
-                    <a href="" class="btn btn-secondary">Explore attribution</a>
-                </div>
-                <div class="subsection-solutions__pic">
-                    <img src="assets/img/solutions/img-solutions-attribution.png">
-                </div>
-            </div>
-        </section>
-        <section role="region" class="subsection-solutions">
-            <div class="container subsection-solutions__container">
-                <div class="subsection-solutions__text">
-                    <h3>Put your data in action</h3>
-                    <p>Our AI-based predictive model tells you how to allocate your budget among channels for maximum performance.</p> 
-                    <p>Depending on your marketing goals, you can optimize campaigns for profit or revenue.  </p>
-                </div>
-                <div class="subsection-solutions__pic">
-                    <img src="assets/img/solutions/img-solutions-prediction.png">
-                </div>
-            </div>
-        </section>
     </section>
     <section role="region" class="section section-discover">
         <div class="container">
@@ -387,67 +345,100 @@
     </section>
     <section role="region" class="section section--grey section-cta">
         <div class="container">
-            <h2>Not sure?</h2>
-            <p>Give us a call (+ 420 721 881 783) or book a free demo. <br />
-            Our product expert will show you how easy it is to start increasing marketing ROI with the right tool.</p>
-            <a class="btn btn-primary">Book a free demo</a>
+            <?php
+                if( have_rows('cta') ): ?>
+                    <?php
+                    while( have_rows('cta') ): the_row(); ?>
+                    <?php
+                        if(get_sub_field('cta_heading')):?>
+                        <h2><?php the_sub_field('cta_heading')?></h2>
+                        <?php 
+                        endif;?>
+                        <?php
+                        if(get_sub_field('cta_text')):?>
+                        <p><?php the_sub_field('cta_text')?></p>
+                        <?php 
+                        endif;?>
+                        <?php 
+                        if(get_sub_field('cta_button')):
+                            $link = get_sub_field('cta_button');?>
+                            <a href="<?php echo esc_url( $link['url'] ); ?>" class="btn btn-primary"><?php echo esc_attr( $link['title'] ); ?></a>
+                        <?php 
+                        endif;?>
+                    <?php
+                    endwhile;
+                endif;?>
         </div>
     </section>
     <section role="region" class="section section-stories">
         <div class="container section-stories__container">
-            <div class="section-stories__text">
-                <h2>Data-driven marketers are growing ROI with ROIVENUE</h2>
-                <p><strong>180% ROI growth</strong> from affiliate channel, <strong>doubling</strong> campaign revenue, <strong>saving 15%</strong> of markerting budget while maintaining campaign revenue...our case studies abound with concrete examples.</p> 
-                <p>Learn how smart companies are making more money from campaigns.</p>
-                <a href="#" class="btn btn-primary">See success stories</a>
-            </div>
-            <div class="section-stories__logos">
-                <div class="section-stories__logos-item">
-                    <div class="section-stories__logos-content">
-                        <img src="assets/img/logos/vodafone.png">
+            <?php
+            if( have_rows('stories') ): ?>
+                <?php
+                while( have_rows('stories') ): the_row(); ?>
+                    <div class="section-stories__text">
+                    <?php
+                    if( have_rows('stories_content') ): ?>
+                        <?php
+                        while( have_rows('stories_content') ): the_row(); ?>
+                            <?php
+                            if(get_sub_field('stories_heading')):?>
+                            <h2><?php the_sub_field('stories_heading')?></h2>
+                            <?php 
+                            endif;?>
+                            <?php
+                            if(get_sub_field('stories_text')):?>
+                            <?php the_sub_field('stories_text')?>
+                            <?php 
+                            endif;?>
+                            <?php 
+                            if(get_sub_field('stories_button')):
+                                $link = get_sub_field('stories_button');?>
+                                <a href="<?php echo esc_url( $link['url'] ); ?>" class="btn btn-primary"><?php echo esc_attr( $link['title'] ); ?></a>
+                            <?php 
+                        endif;?>
+                        <?php
+                        endwhile;
+                    endif;?>    
                     </div>
-                </div>
-                <div class="section-stories__logos-item">
-                    <div class="section-stories__logos-content">
-                        <img src="assets/img/logos/axa.png">
+                    <div class="section-stories__logos">
+                        <?php
+                        if( have_rows('stories_company') ): ?>
+                            <?php
+                            while( have_rows('stories_company') ): the_row(); ?>
+                                <?php
+                                if( have_rows('stories_company_item') ): ?>
+                                    <?php
+                                    while( have_rows('stories_company_item') ): the_row(); ?>
+                                        <?php
+                                        $logos = get_sub_field('stories_company_logo');
+                                        if( $logos ): ?>
+                                            <?php foreach( $logos as $post ): 
+                                                // Setup this post for WP functions (variable must be named $post).
+                                                setup_postdata($post); ?>
+                                                <div class="section-stories__logos-item">
+                                                    <div class="section-stories__logos-content">
+                                                        <?php if( get_field('client_image') ): ?>
+                                                            <img src="<?php the_field('client_image'); ?>" />
+                                                        <?php endif; ?>
+                                                    </div>
+                                                </div>        
+                                            <?php endforeach; ?>
+                                            <?php 
+                                            // Reset the global post object so that the rest of the page works correctly.
+                                            wp_reset_postdata(); ?>
+                                            
+                                        <?php endif; ?>
+                                        <?php
+                                    endwhile;
+                                endif;?>
+                            <?php
+                            endwhile;
+                        endif;?>
                     </div>
-                </div>
-                <div class="section-stories__logos-item">
-                    <div class="section-stories__logos-content">
-                        <img src="assets/img/logos/eatstreet.png">
-                    </div>
-                </div>
-                <div class="section-stories__logos-item">
-                    <div class="section-stories__logos-content">
-                        <img src="assets/img/logos/coolstuff.png">
-                    </div>
-                </div>
-                <div class="section-stories__logos-item">
-                    <div class="section-stories__logos-content">
-                        <img src="assets/img/logos/datart.png">
-                    </div>
-                </div>
-                <div class="section-stories__logos-item">
-                    <div class="section-stories__logos-content">
-                        <img src="assets/img/logos/coolstuff.png">
-                    </div>
-                </div>
-                <div class="section-stories__logos-item">
-                    <div class="section-stories__logos-content">
-                        <img src="assets/img/logos/coolstuff.png">
-                    </div>
-                </div>
-                <div class="section-stories__logos-item">
-                    <div class="section-stories__logos-content">
-                        <img src="assets/img/logos/coolstuff.png">
-                    </div>
-                </div>
-                <div class="section-stories__logos-item">
-                    <div class="section-stories__logos-content">
-                        <img src="assets/img/logos/coolstuff.png">
-                    </div>
-                </div>
-            </div>    
+                    <?php
+                endwhile;
+            endif;?>    
         </div>
     </section>
 <script>
