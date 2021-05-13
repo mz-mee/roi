@@ -211,136 +211,271 @@
     </section>
     <section role="region" class="section section--grey section-leader">
         <div class="container">
-            <h2>The leading attribution platform</h2>
-            <div class="section-leader__awards">
-                <div class="section-leader__awards-item">
-                    <img src="assets/img/awards/img-award-top-10.png" />
+            <?php
+            if( have_rows('leader') ): ?>
+                <?php
+                while( have_rows('leader') ): the_row(); ?>
+                <?php if( get_field('leader_heading') ): ?>
+                    <h2><?php the_field('leader_heading'); ?></h2>
+                <?php endif; ?>
+                <div class="section-leader__awards">
+                    <?php
+                    if( have_rows('leader_items') ): ?>
+                        <?php
+                        while( have_rows('leader_items') ): the_row(); ?>
+                        <?php
+                        $image = get_sub_field('leader_image');
+                        ?>
+                        <div class="section-leader__awards-item">
+                            <?php
+                            $size = 'full'; // (thumbnail, medium, large, full or custom size)
+                                if( $image ) :
+                                    echo wp_get_attachment_image( $image, $size );
+                                endif;
+                            ?>
+                        </div>    
+                        <?php
+                        endwhile;
+                    endif;?>
                 </div>
-                <div class="section-leader__awards-item">
-                    <img src="assets/img/awards/capterra.png" />
-                </div>
-                <div class="section-leader__awards-item">
-                    <img src="assets/img/awards/img-award-top-100.png" />
-                </div>
-            </div>
+            <?php
+                endwhile;
+            endif;
+            ?>
         </div>
     </section>
     <section role="region" class="section section--grey section-meet">
         <div class="container">
             <div class="section-meet__container">
-                <h2 class="section-meet__heading">Meet Roivenue 2.0</h2>
-                <p class="section-meet__text">1,000+ hours of programming, 30+ feedback sessions with clients, 2 years of work, billions of datapoints. We’re proudly introducing the next-gen attribution tool.</p>
-                <div class="section-meet__points">
-                    <div class="section-meet__points-item">
-                        <div class="section-meet__points-content">
-                            <h3>AI-powered<br /> attribution</h3>
-                            <div class="section-meet__points-img">
-                                <img src="assets/img/meet/first.png">
-                            </div>    
-                            <p>Our attribution model got a major upgrade and is now based on recurrent neural networks.</p>
-                        </div>
-                    </div>
-                    <div class="section-meet__points-item">
-                        <div class="section-meet__points-content">
-                            <h3>More granular<br /> data</h3>
-                            <div class="section-meet__points-img">
-                                <img src="assets/img/meet/second.svg">
+                <?php
+                if( have_rows('meet') ): ?>
+                    <?php
+                    while( have_rows('meet') ): the_row(); ?>
+                        <?php
+                        if(get_sub_field('meet_heading')):?>
+                            <h2 class="section-meet__heading"><?php the_sub_field('meet_heading');?></h2>
+                        <?php
+                        endif;
+                        ?>
+                        <?php
+                        if(get_sub_field('meet_text')):?>
+                            <p class="section-meet__text"><?php the_sub_field('meet_text');?></p>
+                        <?php
+                        endif;
+                        ?>
+                        <?php
+                        if( have_rows('meet_items') ): ?>
+                            <?php
+                            while( have_rows('meet_items') ): the_row(); ?>
+                                    <?php
+                                if( have_rows('meet_content') ): ?>
+                                    <?php
+                                    while( have_rows('meet_content') ): the_row(); ?>
+                                        <div class="section-meet__points">
+                                            <div class="section-meet__points-item">
+                                                <div class="section-meet__points-content">
+                                                    <?php if( get_field('meet_item_heading') ): ?>
+                                                        <h3><?php the_field('meet_item_heading'); ?></h3>
+                                                    <?php endif; ?>
+                                                    <?php
+                                                    $image = get_sub_field('neet_item_image');
+                                                    ?>
+                                                    <div class="section-meet__points-img">
+                                                        <?php
+                                                        $size = 'full'; // (thumbnail, medium, large, full or custom size)
+                                                            if( $image ) :
+                                                                echo wp_get_attachment_image( $image, $size );
+                                                            endif;
+                                                        ?>
+                                                    </div>
+                                                    <?php if( get_field('meet_item_text') ): ?>
+                                                            <?php the_field('meet_item_text'); ?>
+                                                    <?php endif; ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <?php
+                                    endwhile;
+                                endif?>
+                                <?php
+                            endwhile;
+                        endif?>
+                        <?php if(get_sub_field('meet_button')):
+                            $link = get_sub_field('meet_button');?>
+                            <div class="center">
+                            <a href="<?php echo esc_url( $link['url'] ); ?>" class="btn btn-primary"><?php echo esc_attr( $link['title'] ); ?></a>
                             </div>
-                            <p>We’re adding daily, monthly and custom selection data ranges.</p>
-                        </div>
-                    </div>
-                    <div class="section-meet__points-item">
-                        <div class="section-meet__points-content">
-                            <h3>Dimension-level<br /> attribution</h3>
-                            <div class="section-meet__points-img">
-                                <img src="assets/img/meet/third.svg">
-                            </div>    
-                            <p>Data-driven attribution modelling is now available on a campaign as well as an ad group level.</p>
-                        </div>
-                    </div>
-                </div>
-                <!--<div class="center">
-                    <a href="#" class="btn btn-primary">Explore ROIVENUE 2.0</a>
-                </div>-->
+                        <?php 
+                        endif;?>
+                    <?php
+                    endwhile;
+                endif;
+                    ?>
             </div>
         </div>
     </section>
     <section role="region" class="section section-solutions">
-        <div class="container">
-            <h2 class="section-solutions__heading">Solutions for companies at all stages of analytics maturity</h2>
-            <p class="section-solutions__text">Whether you’re a small eshop or a fast growing ecommerce brand selling all over the world, we make sure you have the right data to make the most out of your ad spend. </p>
-        </div>
-        <section role="region" class="subsection-solutions">
-            <div class="container subsection-solutions__container">
-                <div class="subsection-solutions__text">
-                    <span class="subsection-solutions__text-preheading">Data connectors</span>
-                    <h3>Get your data</h3>
-                    <p>Our connectors extract your marketing 
-                        data from analytics as well as advertising 
-                        platforms and export it into a spreadsheet
-                        or database.  </p>
-                    <a href="" class="btn btn-secondary">Explore data connectors</a>
+        <?php
+            if( have_rows('solutions') ): ?>
+                <?php
+                while( have_rows('solutions') ): the_row(); ?>
+                <div class="container">
+                    <?php if( get_field('solutions_heading') ): ?>
+                        <h2 class="section-solutions__heading"><?php the_field('solution_heading'); ?></h2>
+                    <?php endif; ?>
+                    <?php if( get_field('solutions_text') ): ?>
+                        <p class="section-solutions__text"><?php the_field('solutions_text'); ?></p>
+                    <?php endif; ?>
                 </div>
-                <div class="subsection-solutions__pic">
-                    <img src="assets/img/solutions/img-solutions-data-connectors.png">
-                </div>
-            </div>
-        </section>
+                <?php
+                if( have_rows('solutions_subsection') ): ?>
+                    <?php
+                    while( have_rows('solutions_subsection') ): the_row(); ?>
+                        <section role="region" class="subsection-solutions">
+                            <div class="container subsection-solutions__container">
+                                <div class="subsection-solutions__text">
+                                <?php
+                                if( have_rows('solutions_text') ): ?>
+                                    <?php
+                                    while( have_rows('solutions_text') ): the_row(); ?>
+                                        <?php
+                                        if(get_sub_field('solutions_preheading')):?>
+                                            <span class="subsection-solutions__text-preheading"><?php the_sub_field('solutions_preheading');?></span>
+                                        <?php
+                                        endif;
+                                        ?>
+                                        <?php
+                                        if(get_sub_field('solutions_heading')):?>
+                                            <h3><?php the_sub_field('solutions_heading');?></h3>
+                                        <?php
+                                        endif;
+                                        ?>
+                                        <?php
+                                        if(get_sub_field('solutions_content')):?>
+                                            <?php the_sub_field('solutions_content');?>
+                                        <?php
+                                        endif;
+                                        ?>
+                                        <?php
+                                        if(get_sub_field('solutions_content_small')):?>
+                                            <div class="subsection-solutions__text-protip">
+                                                <?php the_sub_field('solutions_content_small');?>
+                                            </div>
+                                        <?php
+                                        endif;
+                                        ?>
+                                        <?php if(get_sub_field('solutions_link')):
+                                            $link = get_sub_field('solutions_link');?>
+                                            <a href="<?php echo esc_url( $link['url'] ); ?>" class="btn btn-secondary"><?php echo esc_attr( $link['title'] ); ?></a>
+                                        <?php 
+                                        endif;?>
+                                    <?php
+                                    endwhile;
+                                endif;
+                                ?>   
+                                </div>
+                                <?php
+                                $image = get_sub_field('solutions_image');
+                                ?>
+                                <div class="subsection-solutions__pic">
+                                    <?php
+                                    $size = 'full'; // (thumbnail, medium, large, full or custom size)
+                                        if( $image ) :
+                                            echo wp_get_attachment_image( $image, $size );
+                                        endif;
+                                    ?>
+                                </div>
+                            </div>
+                        </section>
+                    <?php
+                    endwhile;
+                endif;
+                ?>    
+        <?php
+        endwhile;
+        endif;?>
     </section>
     <section role="region" class="section section-discover">
         <div class="container">
-            <h2 class="section-discover__heading">Discover why customers love working with us</h2>
-            <div class="section-discover__points">
-                <div class="section-discover__points-item">
-                    <div class="section-discover__points-content">
-                        <h3>Fast implementation</h3>
-                        <div class="section-discover__points-image">
-                            <img src="assets/img/discover/img-fast-implementation.svg">
+            <?php
+            if( have_rows('discover') ): ?>
+                <?php
+                while( have_rows('discover') ): the_row(); ?>
+                    <?php
+                    if(get_sub_field('discover_heading')):?>
+                        <h2 class="section-discover__heading"><?php the_sub_field('discover_heading');?></h2>
+                    <?php
+                    endif;
+                    ?>
+                     <?php
+                    if( have_rows('discover_content') ): ?>
+                        <?php
+                        while( have_rows('discover_content') ): the_row(); ?>
+                            <div class="section-discover__points">
+                                <div class="section-discover__points-item">
+                                    <div class="section-discover__points-content">
+                                        <?php
+                                        if(get_sub_field('discover_item_heading')):?>
+                                            <h3><?php the_sub_field('discover_item_heading');?></h3>
+                                        <?php
+                                        endif;
+                                        ?>
+                                        <?php
+                                        $image = get_sub_field('discover_item_img');
+                                        ?>
+                                        <div class="section-discover__points-image">
+                                            <?php
+                                            $size = 'full'; // (thumbnail, medium, large, full or custom size)
+                                                if( $image ) :
+                                                    echo wp_get_attachment_image( $image, $size );
+                                                endif;
+                                            ?>
+                                        </div>
+                                        <?php
+                                        if(get_sub_field('discover_item_text')):?>
+                                            <h3><?php the_sub_field('discover_item_text');?></h3>
+                                        <?php
+                                        endif;
+                                        ?>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php
+                        endwhile;
+                    endif;
+                    ?>
+                    <div class="section-discover__video">
+                        <div class="section-discover__video-overlay">
+                            <?php
+                            if(get_sub_field('overlay_video_text')):?>
+                            <p>
+                                <?php the_sub_field('overlay_video_text');?>
+                            </p>
+                            <?php endif;?>
+                            <span class="section-discover__video-play" onclick="toggleControls()";>Watch now</span>
                         </div>
-                        <p>Forget months long implementation processes, we get up and running within a week.</p>
-                    </div>
-                </div>
-                <div class="section-discover__points-item">
-                    <div class="section-discover__points-content">
-                        <h3>Fast implementation</h3>
-                        <div class="section-discover__points-image">
-                            <img src="assets/img/discover/img-no-commitments.svg">
-                        </div>
-                        <p>Forget months long implementation processes, we get up and running within a week.</p>
-                    </div>
-                </div>
-                <div class="section-discover__points-item">
-                    <div class="section-discover__points-content">
-                        <h3>Fast implementation</h3>
-                        <div class="section-discover__points-image">
-                            <img src="assets/img/discover/img-actionable-data.svg">
-                        </div>
-                        <p>Forget months long implementation processes, we get up and running within a week.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="section-discover__video">
-                <div class="section-discover__video-overlay">
-                    <p class="">
-                        Removing data silos <br />
-                        Turning loss into a profit<br />
-                        Revenue +20%
-                    </p>
-                    <span class="section-discover__video-play" onclick="toggleControls()";>Watch now</span>
-                </div>
-                <video id="video" class="section-discover__video-file blurred">
-                    <source src="assets/img/test.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                  </video> 
-                <svg class="blur-filter" id="svg-image-blur">
-                    <filter id="blur-effect-1">
-                        <feGaussianBlur stdDeviation="2" />
-                    </filter>
-                </svg>
+                        <?php
+                        if(get_sub_field('video')):?>
+                            <video id="video" class="section-discover__video-file blurred">
+                                <source src="<?php the_sub_field('video');?>" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        <?php
+                        endif;
+                        ?>
+                        <svg class="blur-filter" id="svg-image-blur">
+                            <filter id="blur-effect-1">
+                                <feGaussianBlur stdDeviation="2" />
+                            </filter>
+                        </svg>
 
-                </div>
-                
-            </div>
+                        </div>
+                        
+                    </div>
+                <?php
+                endwhile;
+            endif;
+            ?>
         </div>
     </section>
     <section role="region" class="section section--grey section-cta">
