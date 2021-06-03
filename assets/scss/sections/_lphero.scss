@@ -1,0 +1,25 @@
+.section-lphero{
+    text-align: center;
+    background: $base url('../img/hero-lp-bg.png') no-repeat center center;
+    background-size: auto 100%;
+    color: white;
+    padding:11.5rem 0rem 15rem 0rem;
+    backg
+
+    &__container{
+        width: 1003px;
+    }
+
+    h1{
+        margin:0;
+        padding-bottom: 5.2rem;
+    }
+
+    p{
+        margin: 0;
+        font-size: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    
+}

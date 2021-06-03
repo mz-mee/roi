@@ -1,25 +1,33 @@
 .section-hero{
     background-color:#0A0E3E;
-    background-image: url('../img/hero.png'),url(../img/hero2.png);
+    background-image: url('img/hero.png'),url('img/hero2.png');
     background-position: left center, right center;
     background-repeat: no-repeat, no-repeat;
     background-size:auto 100%;
     color:white;
     padding:11.7rem 0;
 
+
     &__container{
+        @include flex();
+        flex-direction: column-reverse;
 
         @include desktop{
-            @include flex();
+            flex-direction: row;
             align-items: center;
         }
     }
 
+
     &__text{
-        flex: 0 1 491px;
+        text-align: center;
+        margin-bottom: 6rem;
 
         @include desktop{
             padding-left: 8.8rem;
+            flex: 0 0 491px;
+            text-align: unset;
+            margin-bottom: 0;
         }
 
         h1{
@@ -36,6 +44,22 @@
             @include desktop{
                 margin-bottom: 5rem;
             }
+        }
+    }
+
+    .btn{
+        position: absolute;
+        bottom: -8rem;
+        left:50%;
+        @include transform(-50%,0);
+        white-space: nowrap;
+
+        @include desktop{
+            position: relative;
+            bottom:auto;
+            left:auto;
+            @include transform(0%,0);
+            white-space: initial;
         }
     }
 }

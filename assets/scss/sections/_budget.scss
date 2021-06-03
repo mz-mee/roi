@@ -12,12 +12,20 @@
         }
     }
 
+    &__graphic{
+        img{
+            width:491px;
+        }
+    }
+
 
     &__text{
+        text-align: center;
         
         @include desktop{
-            flex: 0 1 382px;
+            flex: 0 0 500px;
             padding-left: 8.8rem;
+            text-align: unset;
         }
 
         p{
@@ -28,8 +36,14 @@
                 height:60px;
                 border-left: 0.5px solid $base;;
                 position: absolute;
-                left: 40px;
+                left: 50%;
                 bottom: -65px;
+                @include transform(-50%,0);
+
+                @include mobile400 {
+                    height:120px;
+                    bottom:-130px;
+                }
 
                 @include desktop{
                     width:232px;
@@ -41,6 +55,8 @@
                     height: auto;
                     bottom: auto;
                 }
+
+                
             }
 
             &::before{
@@ -51,13 +67,18 @@
                 width:5px;
                 height:5px;
                 bottom:-68px;
-                left:38px;
+                left:50%;
                 @include border-radius(50%);
+                @include transform(-50%,0);
 
                 @include desktop{
                     top:50%;
                     @include transform(0%,-50%);
                     left:-240px;
+                }
+                
+                @include mobile400{
+                    bottom:-132px;
                 }
             }
         }

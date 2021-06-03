@@ -17,8 +17,8 @@
     @include transition(0.3s zoom linear);
 
     &:hover{
-        zoom: 0.5;
-        -moz-transform: scale(1.02);
+        background-color:#b74235;
+        text-decoration: none;
     }
 
     &--noshadow{
@@ -40,5 +40,6 @@
         background: $base;
         color:white;
         @include transition(0.3s all linear);
+        text-decoration: none;
     }
 }

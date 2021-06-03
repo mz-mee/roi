@@ -35,31 +35,22 @@
             padding-bottom: 2rem;
             width:100%;
             box-sizing: border-box;
+            text-align: center;
 
                 @include tablet{
                     flex:0 1 330px;
-                    text-align: center;
                     padding:2%;
                 }
 
             h3{
                 margin-top:0px;
                 margin-bottom:3.2rem;
-                padding-left: 30%;
-
-                    @include tablet{
-                        padding-left: 0px;
-                    }
             }
 
             p{
-                padding-left: 30%;
-                font-size:1.4rem;
+                font-size:1.8rem;
                 margin-bottom: 0px;
-
-                    @include tablet{
-                        padding-left: 0px;
-                    }
+                font-weight: 500;
             }
             
         }
@@ -84,24 +75,18 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#332a9c', end
 
         &-image{
             @include flex();
-            align-items: flex-end;
+            align-items: center;
             justify-content: center;
             margin-bottom: 2.3rem;
-            position: absolute;
-            left:2%;
-            top:50%;
-            width: 25%;
-            height: 80%;
-            @include transform(0%,-50%);
+            width: auto;
+            height:12rem;
 
                 @include tablet{
                     position: relative;
-                    left:auto;
-                    top:auto;
                     @include transform(0,0);
-                    width: auto;
                     height:21.1rem;
                     margin-top:3.4rem;
+                    align-items: flex-end;
                 }   
 
             img{
@@ -121,30 +106,56 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#332a9c', end
         max-width: 100%;
 
         &-overlay{
+            background: rgba(0,0,0,.5);
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            z-index: 2;
 
             p{
                 position: absolute;
                 z-index: 3;
-                left:4rem;
-                top:2rem;
-                font-size: 2.2rem;
+                left:0;
+                top:0;
+                font-size: 1.8rem;
                 font-weight: 600;
+                text-align: center;
+                width:100%;
+                
+
+                @include tablet{
+                    text-align: unset;
+                    font-size: 2.2rem;
+                    width:auto;
+                    left:4rem;
+                    top:2rem;
+                }
             }
         }
 
         &-play{
             position: absolute;
-            bottom:4rem;
-            right:4rem;
+            bottom:2rem;
+            left:50%;
+            @include transform(-50%,0);
             z-index: 3;
             cursor: pointer;
             font-weight: 600;
             padding: 8px 8px 8px 15px;
             border:1px solid rgba(255,255,255,.5);;
             @include border-radius(50px);
+            width:140px;
 
                 @include tablet{
                     padding: 8px 8px 8px 30px;
+                    right:4rem;
+                    @include transform(0%,0);
+                    left:auto;
+                    width: auto;
+                }
+
+                @include mobile{
+                    bottom:4rem;
                 }
 
             &:after{

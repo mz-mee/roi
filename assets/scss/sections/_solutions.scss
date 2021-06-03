@@ -22,7 +22,7 @@
     }
 
     .subsection-solutions{
-        padding-top: 4rem;
+        padding-top: 12rem;
 
             @include tablet{
                 padding-top: 9.6rem;
@@ -49,20 +49,25 @@
             @include flex();
             align-items: center;
             flex-direction: column-reverse;
+            position: relative;
+            padding-bottom: 5rem;
 
             @include tablet{
                 flex-direction: row;
+                padding-bottom: 0;
             }
         }
 
         &__text{
             order: 1;
-            margin-bottom: 4rem; 
+            margin-bottom: 4rem;
+            text-align: center; 
 
                 @include tablet{
-                    flex:0 1 431px;
+                    flex:0 0 431px;
                     order: initial;
                     margin-bottom: 0;
+                    text-align: left;
                 }
 
             &-preheading{
@@ -70,6 +75,12 @@
                 color: $primary;
                 font-size: 1.6rem;
                 font-weight: 600;
+                text-align: center;
+                        display: block;
+
+                    @include tablet{
+                        text-align: left;
+                    }
 
                 &::before{
                     content:"";
@@ -79,10 +90,24 @@
                     display: inline-block;
                     vertical-align: 5px;
                 }
+
+                &::after{
+                    content:"";
+                    border-bottom: 2px solid $primary;
+                    width: 3.3rem;
+                    margin-left: 1rem;
+                    display: inline-block;
+                    vertical-align: 5px;
+
+                    @include tablet{
+                        display: none;
+                    }
+                    
+                }
             }    
 
             h3{
-                font-size: 4.4rem;
+                font-size: 3.2rem;
                 margin-top:2.2rem;
                 margin-bottom: 1.6rem;
             }
@@ -96,12 +121,30 @@
                     display: block;
                 }
             }
+
         }
 
         &__pic{
 
             @include tablet{
                 padding-left: 7%;
+            }
+        }
+
+        .btn{
+            position: absolute;
+            bottom: -0.5rem;
+            left: 50%;
+            @include transform(-50%,0);
+            text-align: center;
+            white-space: nowrap;
+
+            @include tablet{
+                bottom: auto;
+                position: relative;
+                left: auto;
+                @include transform(0%,0);
+                white-space: initial;
             }
         }
     }
