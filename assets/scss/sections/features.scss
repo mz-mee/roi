@@ -1,0 +1,36 @@
+.section-feature{
+    padding:10.5rem 0rem 9.6rem 0rem;
+    
+    &__grid{
+        @include flex();
+        flex-wrap: wrap;
+
+        &-item{
+            width:25%;
+            padding: 1rem;
+            box-sizing: border-box;
+        }
+
+        &-container{
+            padding: 19px 32px;
+            background: white;
+            border:1px solid $border;
+            @include flex();
+            align-items: center;
+            height:100%;
+            justify-content: space-between;
+            font-size: 1.2rem;
+            font-weight: 600;
+            box-sizing: border-box;
+
+            &:hover{
+                color: $primary;
+                cursor: pointer;
+            }
+
+            span{
+                text-transform: uppercase;
+            }
+        }
+    }
+}

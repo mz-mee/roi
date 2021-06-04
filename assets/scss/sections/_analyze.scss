@@ -1,0 +1,168 @@
+.section-analyze{
+    padding:9.6rem 0;
+
+    &__heading{
+        text-align: center;
+    }
+
+    .analyze-table{
+        width: 100%;
+        border-collapse: collapse;
+        margin-top:7.2rem;
+        border-spacing: 0px;
+        border:none;
+
+        &__header{
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+
+                @include maxtablet{
+                    @include flex();
+                }
+            
+            th{
+                padding:0 1rem;
+
+                &:first-child{
+
+                    @include maxtablet{
+                        display: none;
+                    }
+                }
+            }
+        
+            &-heading{
+                text-align: center;
+                padding:2rem;
+                background: $darkbg;
+                
+
+                @include tablet{
+                    border:1px solid $border;
+                    @include border-radiuses(10px,0px,0px,10px);
+                    padding:24px 20px;
+                }
+
+                img{
+                    margin-bottom: 1.4rem;
+                    max-width: 23px;
+                }
+
+                span{
+                    display: block;
+                    font-weight: 600;
+                }
+            }
+        }
+
+        &__body{
+            
+                @include maxtablet{
+                    @include flex();
+                    flex-wrap: wrap;
+                }
+
+            &-property{
+                font-size: 1.4rem;
+                display: block;
+
+                @include tablet{
+                    padding:0 1rem;
+                }
+            }
+
+            &-content{
+                
+
+                @include tablet{
+                    padding:0 1rem;
+                }
+            }
+
+            &-text{
+                text-align: center;
+                display: block;
+                padding:1.6rem;
+                font-size: 1.4rem;
+                background: white;
+                position: relative;
+                z-index: 2;
+                border-color:white;
+                
+                @include tablet{
+                    border-width:0px 1px 0px 1px;
+                    border-style: solid;
+                    border-color: $border;
+                    background: transparent;
+                }
+            }
+
+            td:first-child{
+                padding:0px 1rem;
+
+                @include maxtablet{
+                    width:100%;
+                    display: block;
+                    
+                    padding:20px 0px 10px 0px!important;
+                }
+            }
+        }
+
+        /*On response first full width*/
+
+        tr > td, tr > th{
+
+            @include maxtablet{
+                width: 33%;
+                box-sizing: border-box;
+            }
+        }
+
+
+        /*Background for second td in line - ROI2*/
+
+        tr > td:nth-child(2) > .analyze-table__body-text{
+            @include tablet{
+                background: white;
+            }
+
+        }
+
+        tr > th:nth-child(2) > .analyze-table__header-heading{
+            @include tablet{
+                background: white;
+            }
+      
+        }
+
+        /*Each last td has border + border-radius*/
+        tr:last-child > td > .analyze-table__body-text{
+            @include tablet{
+                @include border-radiuses(0px,10px,10px,0px);
+                border-bottom: 1px solid $border;
+            }
+            
+        }
+
+        /*Each first bigger padding top*/
+        tr:first-child > td > .analyze-table__body-text,tr:first-child > td > .analyze-table__body-property{
+
+            @include tablet{
+                padding-top: 3rem;
+            }
+            
+        }
+
+
+        /*Hover row*/
+        tr:hover > td{
+            color: $primary;
+            @include transition(0.3s all linear);
+        }
+
+        
+    }
+}
