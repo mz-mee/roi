@@ -222,7 +222,10 @@
         tr > th:nth-child(2) > .analyze-table__header-heading{
             background: transparent;
             border: 0;
-            border-bottom: 1px solid $border;
+
+            @include tablet{
+                border-bottom: 1px solid $border;
+            }
         }
 
         tr:last-child > td > .analyze-table__body-text{
