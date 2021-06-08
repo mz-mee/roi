@@ -16,11 +16,11 @@
             position: relative;
             &:after{
                 content: "";
-                width: calc(((100% - 12rem) - 248px) / 3);
+                width: calc(25% - 2rem);
                 height: calc(100% + 115px);
                 position: absolute;
                 top: -115px;
-                left: 257px;
+                left: calc(25% + 1rem);
                 border-radius: 10px;
                 background: white;
                 box-shadow: 0 40px 60px -20px rgba(12,5,62,0.15);
@@ -48,6 +48,10 @@
             th{
                 padding:0 1rem;
 
+                @include tablet{
+                    width: 25%;
+                }
+
                 &:first-child{
 
                     @include maxtablet{
@@ -68,7 +72,7 @@
 
                     @include tablet{
                         border: 1px solid $border;
-                        padding: 0 20px;
+                        padding: 0 10px;
                         border-radius: 10px 10px 0 0;
                     }
 
@@ -211,7 +215,7 @@
         tr > td:nth-child(2) > .analyze-table__body-text {
 
             @include tablet {
-                border: 0;
+                border: 0 !important;
             }
         }
 
@@ -219,6 +223,13 @@
             background: transparent;
             border: 0;
             border-bottom: 1px solid $border;
+        }
+
+        tr:last-child > td > .analyze-table__body-text{
+            @include tablet{
+                @include border-radiuses(0px,10px,10px,0px);
+                border-bottom: 1px solid $border;
+            }
         }
 
         tr > th:nth-child(2) > .analyze-table__header-heading .analyze-table__header-heading__inner{
