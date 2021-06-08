@@ -1,6 +1,10 @@
 .section-solutions{
     padding:9.6rem 0;
 
+        &--nopadding{
+            padding:0px;
+        }
+
     &__heading, &__text{
         text-align: center;
 
@@ -19,6 +23,7 @@
         margin: 0 auto;
         margin-bottom: 3rem;
 
+
     }
 
     .subsection-solutions{
@@ -26,6 +31,40 @@
 
             @include tablet{
                 padding-top: 9.6rem;
+            }
+
+            &--smallpadding{
+                padding-top:6.6rem
+            }
+
+            &--feature{
+
+                @include tablet{
+                    display: none;
+                }
+
+
+                .subsection-solutions__container{
+
+                    @include tablet{
+                        flex-direction: row-reverse!important;
+                    }
+                }
+    
+                .subsection-solutions__pic{
+    
+                    @include tablet{
+                        padding-left: 0px;
+                        padding-right: 7%!important;
+                    }
+                }
+            }
+
+            &--show{
+
+                @include tablet{
+                    display: block;
+                }
             }
 
         &:nth-child(2n+1){
@@ -70,13 +109,19 @@
                     text-align: left;
                 }
 
+                &--smaller{
+                    @include tablet{
+                        flex:0 0 343px;
+                    }
+                }
+
             &-preheading{
                 text-transform: uppercase;
                 color: $primary;
                 font-size: 1.6rem;
                 font-weight: 600;
                 text-align: center;
-                        display: block;
+                display: block;
 
                     @include tablet{
                         text-align: left;
@@ -104,7 +149,33 @@
                     }
                     
                 }
-            }    
+            }
+
+            &-preicon{
+                text-transform: uppercase;
+                color: $primary;
+                font-size: 1.6rem;
+                font-weight: 600;
+                justify-content: center;
+                @include flex();
+                align-items: center;
+
+                    @include tablet{
+                        justify-content: flex-start;
+                        font-size:1.2rem;
+                    }
+
+                    img{
+                        margin-right: 1.6rem;
+                        height: 16px;
+                        width: auto;
+                    }
+
+                    span{
+                        margin-top: 2px;
+                        line-height: 1;
+                    }
+            }
 
             h3{
                 font-size: 3.2rem;

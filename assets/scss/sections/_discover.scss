@@ -153,6 +153,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#332a9c', end
             border:1px solid rgba(255,255,255,.5);;
             @include border-radius(50px);
             width:140px;
+            box-sizing: border-box;
 
                 @include tablet{
                     padding: 8px 8px 8px 30px;
@@ -193,11 +194,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#332a9c', end
 
             &--centered{
                 left: 50%;
-                width:auto;
                 @include transform(-50%,-50%);
                 right: auto;
                 bottom:auto;
                 top:50%;
+                width:140px;
+
+                @include tablet{
+                    width: auto;
+                }
             }
         }
 

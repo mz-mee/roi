@@ -1,9 +1,26 @@
 .section-feature{
     padding:10.5rem 0rem 9.6rem 0rem;
+
+    &__heading{
+        text-align: center;
+        width: 797px;
+        max-width: 100%;
+        margin: 0 auto;
+        
+
+        @include tablet{
+            margin-bottom: 8.6rem;
+        }
+    }
     
     &__grid{
-        @include flex();
-        flex-wrap: wrap;
+        display: none;
+    
+        @include tablet{
+            @include flex();
+            flex-wrap: wrap;
+            margin: 0 -1rem;
+        }
 
         &-item{
             width:25%;
@@ -12,7 +29,7 @@
         }
 
         &-container{
-            padding: 19px 32px;
+            padding: 19px 30px;
             background: white;
             border:1px solid $border;
             @include flex();
@@ -22,15 +39,33 @@
             font-size: 1.2rem;
             font-weight: 600;
             box-sizing: border-box;
+            @include border-radius(5px);
 
-            &:hover{
+                &:hover{
+                    @include boxie-shadow(0,20px,40px,-20px, rgba(12, 5, 62, 0.4));
+                    cursor: pointer;
+                }
+
+            &--active{
                 color: $primary;
-                cursor: pointer;
-            }
+
+                svg{
+                    fill: $primary;
+                }
+            }    
 
             span{
                 text-transform: uppercase;
+                margin-top:2px;
+                padding-right: 8px;
             }
+
+            svg{
+                height: 16px;
+                width: auto;
+            }
+
+            
         }
     }
 }

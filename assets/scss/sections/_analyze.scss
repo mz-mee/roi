@@ -35,15 +35,19 @@
         
             &-heading{
                 text-align: center;
-                padding:2rem;
+                padding:1rem;
                 background: $darkbg;
+
+                    @include mobile{
+                        padding:2rem;
+                    }
                 
 
-                @include tablet{
-                    border:1px solid $border;
-                    @include border-radiuses(10px,0px,0px,10px);
-                    padding:24px 20px;
-                }
+                    @include tablet{
+                        border:1px solid $border;
+                        @include border-radiuses(10px,0px,0px,10px);
+                        padding:24px 20px;
+                    }
 
                 img{
                     margin-bottom: 1.4rem;
@@ -52,7 +56,12 @@
 
                 span{
                     display: block;
-                    font-weight: 600;
+                    font-size: 1.6rem;
+
+                    @include mobile{
+                        font-weight: 600;
+                        font-size:1.8rem;
+                    }
                 }
             }
         }
@@ -70,6 +79,50 @@
 
                 @include tablet{
                     padding:0 1rem;
+                }
+
+                .info{
+                    font-weight: 600;
+                    border:1.4px solid $base;
+                    @include border-radius(50%);
+                    width:14px;
+                    height:14px;
+                    display: inline-block;
+                    font-size: 10px;
+                    text-align: center;
+                    line-height: 16px;
+                    cursor: pointer;
+                    margin-left: 8px;
+
+                    &:before {            
+                        position: absolute;
+                        content : attr(data-tooltip);
+                        opacity : 1;
+                        background-color: $base;
+                        color:white;
+                        @include border-radius(5px);
+                        padding:15px 30px;
+                        font-weight: 400;
+                        width:458px;
+                        max-width: 100%;
+                        top:-150%;
+                        left:25px;
+                        @include boxie-shadow(-8px,13px,51px,-12px,$base);
+                        opacity: 0;
+                        z-index:-1;
+
+                        @include maxtablet{
+                            max-width: 60%;
+                            left:0;
+                        }
+                    }
+
+                    &:hover{
+                        &:before{
+                            opacity: 1;
+                            z-index:1000;
+                        }
+                    }
                 }
             }
 
@@ -101,11 +154,13 @@
 
             td:first-child{
                 padding:0px 1rem;
+                width:248px;
+                box-sizing: border-box;
+                position: relative;
 
                 @include maxtablet{
                     width:100%;
                     display: block;
-                    
                     padding:20px 0px 10px 0px!important;
                 }
             }
@@ -125,26 +180,65 @@
         /*Background for second td in line - ROI2*/
 
         tr > td:nth-child(2) > .analyze-table__body-text{
+
             @include tablet{
                 background: white;
+                position: relative;
+                box-shadow: 0px 5px 18px 0px rgba(12, 5, 62, 0.15);
+
+                &::before{
+                    height:20px;
+                    width:100%;
+                    top:-20px;
+                    background: white;
+                    display: block;
+                    position: absolute;
+                    content:"";
+                    left:0px;
+                    z-index: 10;
+                }
             }
+
 
         }
 
         tr > th:nth-child(2) > .analyze-table__header-heading{
             @include tablet{
                 background: white;
+                position: relative;
+                box-shadow: 0px 0px 18px 0px rgba(12, 5, 62, 0.15);
+
+                &::after{
+                    height:20px;
+                    width:100%;
+                    bottom:-20px;
+                    background: white;
+                    display: block;
+                    position: absolute;
+                    content:"";
+                    left:0px;
+                    z-index: 10;
+                }
             }
       
         }
 
         /*Each last td has border + border-radius*/
         tr:last-child > td > .analyze-table__body-text{
+
             @include tablet{
                 @include border-radiuses(0px,10px,10px,0px);
                 border-bottom: 1px solid $border;
+                
             }
             
+        }
+
+        tr:last-child > td > .analyze-table__body-property,tr:last-child > td > .analyze-table__body-text{
+            @include tablet{
+                padding-top: 1.6rem;
+                padding-bottom: 3rem;
+            }
         }
 
         /*Each first bigger padding top*/
@@ -152,6 +246,7 @@
 
             @include tablet{
                 padding-top: 3rem;
+                padding-bottom: 1.6rem;
             }
             
         }
@@ -159,7 +254,7 @@
 
         /*Hover row*/
         tr:hover > td{
-            color: $primary;
+            font-weight: 600;
             @include transition(0.3s all linear);
         }
 
