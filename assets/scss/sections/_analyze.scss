@@ -12,6 +12,29 @@
         border-spacing: 0px;
         border:none;
 
+        tbody{
+            position: relative;
+            &:after{
+                content: "";
+                width: calc(((100% - 12rem) - 248px) / 3);
+                height: calc(100% + 115px);
+                position: absolute;
+                top: -115px;
+                left: 257px;
+                border-radius: 10px;
+                background: white;
+                box-shadow: 0 40px 60px -20px rgba(12,5,62,0.15);
+                border: 1px solid $border;
+                display: none;
+
+                @include tablet{
+                    display: block;
+                }
+            }
+
+
+        }
+
         &__header{
             position: -webkit-sticky;
             position: sticky;
@@ -35,7 +58,7 @@
         
             &-heading{
                 text-align: center;
-                padding:1rem;
+                padding: 1rem;
                 background: $darkbg;
 
                     @include mobile{
@@ -44,10 +67,17 @@
                 
 
                     @include tablet{
-                        border:1px solid $border;
-                        @include border-radiuses(10px,0px,0px,10px);
-                        padding:24px 20px;
+                        border: 1px solid $border;
+                        padding: 0 20px;
+                        border-radius: 10px 10px 0 0;
                     }
+
+                &__inner{
+
+                    @include tablet{
+                        padding: 24px 0;
+                    }
+                }
 
                 img{
                     margin-bottom: 1.4rem;
@@ -178,60 +208,23 @@
 
 
         /*Background for second td in line - ROI2*/
+        tr > td:nth-child(2) > .analyze-table__body-text {
 
-        tr > td:nth-child(2) > .analyze-table__body-text{
-
-            @include tablet{
-                background: white;
-                position: relative;
-                box-shadow: 0px 5px 18px 0px rgba(12, 5, 62, 0.15);
-
-                &::before{
-                    height:20px;
-                    width:100%;
-                    top:-20px;
-                    background: white;
-                    display: block;
-                    position: absolute;
-                    content:"";
-                    left:0px;
-                    z-index: 10;
-                }
+            @include tablet {
+                border: 0;
             }
-
-
         }
 
         tr > th:nth-child(2) > .analyze-table__header-heading{
-            @include tablet{
-                background: white;
-                position: relative;
-                box-shadow: 0px 0px 18px 0px rgba(12, 5, 62, 0.15);
-
-                &::after{
-                    height:20px;
-                    width:100%;
-                    bottom:-20px;
-                    background: white;
-                    display: block;
-                    position: absolute;
-                    content:"";
-                    left:0px;
-                    z-index: 10;
-                }
-            }
-      
+            background: transparent;
+            border: 0;
+            border-bottom: 1px solid $border;
         }
 
-        /*Each last td has border + border-radius*/
-        tr:last-child > td > .analyze-table__body-text{
-
+        tr > th:nth-child(2) > .analyze-table__header-heading .analyze-table__header-heading__inner{
             @include tablet{
-                @include border-radiuses(0px,10px,10px,0px);
-                border-bottom: 1px solid $border;
-                
+                background: white;
             }
-            
         }
 
         tr:last-child > td > .analyze-table__body-property,tr:last-child > td > .analyze-table__body-text{
@@ -254,8 +247,9 @@
 
         /*Hover row*/
         tr:hover > td{
+            cursor: default;
             font-weight: 600;
-            @include transition(0.3s all linear);
+            //@include transition(0.3s all linear);
         }
 
         
