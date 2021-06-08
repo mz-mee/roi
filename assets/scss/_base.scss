@@ -4,10 +4,10 @@
     font-weight: 400;
     src:local('Avenir Book'),
     local('AvenirLTPro-Book'),
-    /*url('/static/fonts/AvenirLTPro-Book/font.woff2') format('woff2'),
-    url('/static/fonts/AvenirLTPro-Book/font.woff') format('woff')*/
-    url('../fonts/avenir-book/font.woff2') format('woff2'),
-    url('../fonts/avenir-book/font.woff') format('woff')
+    url('/static/fonts/AvenirLTPro-Book/font.woff2') format('woff2'),
+    url('/static/fonts/AvenirLTPro-Book/font.woff') format('woff')
+    /*url('../fonts/avenir-book/font.woff2') format('woff2'),
+    url('../fonts/avenir-book/font.woff') format('woff')*/
    }
 
    @font-face {
@@ -16,10 +16,10 @@
     font-weight: 600;
     src:local('Avenir Bold'),
     local('AvenirLTPro-Heavy'),
-    /*url('https://roivenue.com/static/fonts/AvenirLTPro-Heavy/font.woff2') format('woff2'),
-    url('https://roivenue.com/static/fonts/AvenirLTPro-Heavy/font.woff') format('woff')*/
-    url('../fonts/avenir-bold/font.woff2') format('woff2'),
-    url('../fonts/avenir-bold/font.woff') format('woff')
+    url('https://roivenue.com/static/fonts/AvenirLTPro-Heavy/font.woff2') format('woff2'),
+    url('https://roivenue.com/static/fonts/AvenirLTPro-Heavy/font.woff') format('woff')
+    /*url('../fonts/avenir-bold/font.woff2') format('woff2'),
+    url('../fonts/avenir-bold/font.woff') format('woff')*/
 }
 
 html{
