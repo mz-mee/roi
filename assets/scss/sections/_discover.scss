@@ -137,7 +137,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#332a9c', end
             }
 
             &--blue{
-                background: transparentize(#0b0830, .4);
+                background: transparent;
+                @include border-radius(20px);
             }
         }
 

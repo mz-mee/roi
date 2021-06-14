@@ -6,10 +6,10 @@
         width: 797px;
         max-width: 100%;
         margin: 0 auto;
-        
 
         @include tablet{
-            margin-bottom: 8.6rem;
+            margin:0 auto;
+            padding-bottom: 8.6rem;
         }
     }
     
@@ -44,13 +44,28 @@
                 &:hover{
                     @include boxie-shadow(0,20px,40px,-20px, rgba(12, 5, 62, 0.4));
                     cursor: pointer;
+                    color: $primary;
+
+                    svg{
+                        stroke: $primary;
+                        filter:invert(29%) sepia(52%) saturate(4220%) hue-rotate(341deg) brightness(90%) contrast(93%);
+                        -webkit-filter: invert(29%) sepia(52%) saturate(4220%) hue-rotate(341deg) brightness(90%) contrast(93%);
+                        -moz-filter:invert(29%) sepia(52%) saturate(4220%) hue-rotate(341deg) brightness(90%) contrast(93%);
+                    }
+                }
+
+                svg{
+                    stroke: $base;
                 }
 
             &--active{
                 color: $primary;
 
                 svg{
-                    fill: $primary;
+                    stroke: $primary;
+                    filter:invert(29%) sepia(52%) saturate(4220%) hue-rotate(341deg) brightness(90%) contrast(93%);
+                    -webkit-filter: invert(29%) sepia(52%) saturate(4220%) hue-rotate(341deg) brightness(90%) contrast(93%);
+                    -moz-filter:invert(29%) sepia(52%) saturate(4220%) hue-rotate(341deg) brightness(90%) contrast(93%);
                 }
             }    
 

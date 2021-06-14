@@ -394,7 +394,12 @@
             </thead>
             <tbody>
                 <tr class="analyze-table__body">
-                    <td><span class="analyze-table__body-property">Data integration</span></td>
+                    <td><span class="analyze-table__body-property">data 
+                        <span class="info">
+                            t
+                            <span class="info-tooltip">analyze-table__body-text analyze-table__body-text analyze-table__body-text analyze-table__body-text analyze-table__body-text analyze-table__body-text analyze-table__body-text</span>
+                        </span>
+                    </span></td>
                     <td class="analyze-table__body-content"><span class="analyze-table__body-text">Yes</span></td>
                     <td class="analyze-table__body-content"><span class="analyze-table__body-text">Yes</span></td>
                     <td class="analyze-table__body-content"><span class="analyze-table__body-text">-</span></td>
@@ -406,7 +411,15 @@
                     <td class="analyze-table__body-content"><span class="analyze-table__body-text">-</span></td>
                 </tr>
                 <tr class="analyze-table__body">
-                    <td><span class="analyze-table__body-property">Gross profit tracking <span class="info" data-tooltip="Lorem dolor sit amet binamet color pan america los angelos chupa. Lorem dolor sit amet binamet color pan america los angelos chupa">i</span></span></td>
+                    <td>
+                        <span class="analyze-table__body-property">
+                            <span class="info-text">Gross profit tracking</span>
+                            <span class="info">
+                                test it
+                                <span class="info-tooltip">The test text</span>
+                            </span>
+                        </span>
+                    </td>
                     <td class="analyze-table__body-content"><span class="analyze-table__body-text">Yes</span></td>
                     <td class="analyze-table__body-content"><span class="analyze-table__body-text">-</span></td>
                     <td class="analyze-table__body-content"><span class="analyze-table__body-text">-</span></td>
@@ -441,6 +454,7 @@
     </div>
 </section>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>
     const swiper = new Swiper('.swiper-container', {
     // Optional parameters
@@ -501,6 +515,24 @@
                
             });
         }
+    });
+
+    
+
+    $(document).ready(function() {
+        $('.info').mouseover(function(){
+            var tooltip = $(this).children('.info-tooltip');
+            var height = $(tooltip).outerHeight() + 10;
+            var left = $(this).siblings('.info-text').outerWidth();
+            $(tooltip).css({'top': "-" + height + 'px', 'left': "-" + left + 'px'});
+        });
+
+        $('.info').click(function(){
+            var tooltip = $(this).children('.info-tooltip');
+            var height = $(tooltip).outerHeight() + 10;
+            var left = $(this).siblings('.info-text').outerWidth();
+            $(tooltip).css({'top': "-" + height + 'px', 'left': "-" + left + 'px'});
+        });
     });
 
 </script>

@@ -64,11 +64,12 @@
 
     &__points{
         margin-top:10rem;
-        /*margin-bottom: 7.2rem;*/
+        margin-bottom: 1.2rem;
 
-        @include tablet{
-            @include flex();
-        }
+            @include tablet{
+                @include flex();
+                margin-bottom: 7.2rem;
+            }
         
 
         &-item{

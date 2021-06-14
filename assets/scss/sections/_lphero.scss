@@ -1,10 +1,13 @@
 .section-lphero{
     text-align: center;
-    background: $base url('../img/hero-lp-bg.png') no-repeat center center;
-    background-size: auto 100%;
+    background: $base url('img/hero-lp-bg.png') no-repeat center center;
+    background-size: cover;
     color: white;
-    padding:11.5rem 0rem 15rem 0rem;
-    backg
+    padding:8.5rem 0rem 6rem 0rem;
+
+        @include tablet{
+            padding:11.5rem 0rem 11rem 0rem;
+        }
 
     &__container{
         width: 1003px;
@@ -12,7 +15,18 @@
 
     h1{
         margin:0;
-        padding-bottom: 5.2rem;
+        margin-top:3rem;
+        margin-bottom: 3rem;
+        font-size: 4.6rem;
+
+        @include tablet{
+            margin-top:9rem;
+            margin-bottom: 5rem;
+        }
+
+        @include mobile{
+            font-size: 5.5rem;
+        }
     }
 
     p{
@@ -21,5 +35,19 @@
         padding-bottom: 2rem;
     }
 
+    video,img{
+        width: 695px ;
+        max-width: 100%;
+        margin:3rem auto;
+        display: block;
+
+        @include tablet{
+            margin:6rem auto;
+        }
+    }
+
+    .button{
+        margin: 0 auto;
+    }
     
 }

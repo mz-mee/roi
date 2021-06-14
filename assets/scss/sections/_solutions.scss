@@ -3,6 +3,8 @@
 
         &--nopadding{
             padding:0px;
+            position: relative;
+
         }
 
     &__heading, &__text{
@@ -28,19 +30,26 @@
 
     .subsection-solutions{
         padding-top: 12rem;
+        
 
             @include tablet{
                 padding-top: 9.6rem;
             }
 
             &--smallpadding{
-                padding-top:6.6rem
+                padding-top:6.6rem;
+
+                @include tablet{
+                    box-sizing: padding-box;
+                }
             }
 
             &--feature{
 
                 @include tablet{
-                    display: none;
+                    opacity: 0;
+                    position: absolute;
+                    top:0px;
                 }
 
 
@@ -63,7 +72,8 @@
             &--show{
 
                 @include tablet{
-                    display: block;
+                    opacity: 1;
+                    position: relative;
                 }
             }
 
@@ -95,6 +105,12 @@
                 flex-direction: row;
                 padding-bottom: 0;
             }
+
+            &--feature{
+                @include tablet{
+                    align-items: flex-start;
+                }
+            }
         }
 
         &__text{
@@ -110,6 +126,7 @@
                 }
 
                 &--smaller{
+
                     @include tablet{
                         flex:0 0 343px;
                     }
@@ -159,16 +176,21 @@
                 justify-content: center;
                 @include flex();
                 align-items: center;
+                margin-top:2rem;
 
                     @include tablet{
                         justify-content: flex-start;
                         font-size:1.2rem;
                     }
 
-                    img{
+                    svg{
                         margin-right: 1.6rem;
                         height: 16px;
                         width: auto;
+                        stroke: $primary;
+                        filter:invert(29%) sepia(52%) saturate(4220%) hue-rotate(341deg) brightness(90%) contrast(93%);
+                        -webkit-filter: invert(29%) sepia(52%) saturate(4220%) hue-rotate(341deg) brightness(90%) contrast(93%);
+                        -moz-filter:invert(29%) sepia(52%) saturate(4220%) hue-rotate(341deg) brightness(90%) contrast(93%);
                     }
 
                     span{

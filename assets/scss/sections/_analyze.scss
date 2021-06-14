@@ -3,6 +3,9 @@
 
     &__heading{
         text-align: center;
+        width:1000px;
+        max-width: 100%;
+        margin: 0 auto;
     }
 
     .analyze-table{
@@ -14,12 +17,17 @@
 
         tbody{
             position: relative;
+
             &:after{
                 content: "";
                 width: calc(25% - 2rem);
-                height: calc(100% + 115px);
+                height: calc(100% + 12.6rem);
+                /* Firefox */
+                height: -moz-calc(100% + 12.6rem);
+                /* WebKit */
+                height: -webkit-calc(100% + 12.6rem);
                 position: absolute;
-                top: -115px;
+                top: -12.6rem;
                 left: calc(25% + 1rem);
                 border-radius: 10px;
                 background: white;
@@ -38,7 +46,7 @@
         &__header{
             position: -webkit-sticky;
             position: sticky;
-            top: 0;
+            top: 0px;
             z-index: 100;
 
                 @include maxtablet{
@@ -47,24 +55,34 @@
             
             th{
                 padding:0 1rem;
+                
+                
 
                 @include tablet{
                     width: 25%;
+
                 }
 
                 &:first-child{
+                    position: relative;
 
                     @include maxtablet{
                         display: none;
                     }
                 }
             }
+
+            &-inner{
+
+                @include tablet{
+                    padding: 24px 0;
+                }
+            }
         
             &-heading{
                 text-align: center;
-                padding: 1rem;
-                background: $darkbg;
-
+                padding: 1rem 0.5rem;
+                
                     @include mobile{
                         padding:2rem;
                     }
@@ -74,14 +92,8 @@
                         border: 1px solid $border;
                         padding: 0 10px;
                         border-radius: 10px 10px 0 0;
+                        background: $darkbg;
                     }
-
-                &__inner{
-
-                    @include tablet{
-                        padding: 24px 0;
-                    }
-                }
 
                 img{
                     margin-bottom: 1.4rem;
@@ -97,40 +109,52 @@
                         font-size:1.8rem;
                     }
                 }
+
+                &--first{
+                    background: $darkbg;
+                    width:95%;
+                    height:100%;
+                    position: absolute;
+                    top:0px;
+                    left: 0px;
+                    z-index: -1;
+                }
             }
         }
 
         &__body{
             
-                @include maxtablet{
-                    @include flex();
-                    flex-wrap: wrap;
-                }
+            @include maxtablet{
+                @include flex();
+                flex-wrap: wrap;
+            }
 
             &-property{
                 font-size: 1.4rem;
                 display: block;
+                font-weight: 600;
 
-                @include tablet{
-                    padding:0 1rem;
-                }
+                    @include tablet{
+                        padding:0 1rem;
+                        font-weight: unset;
+                        @include flex();
+                        flex-wrap: nowrap;
+                        justify-content: space-between;
+                        align-items: center;
+                    }
 
                 .info{
-                    font-weight: 600;
-                    border:1.4px solid $base;
-                    @include border-radius(50%);
                     width:14px;
                     height:14px;
                     display: inline-block;
-                    font-size: 10px;
-                    text-align: center;
-                    line-height: 16px;
                     cursor: pointer;
                     margin-left: 8px;
+                    vertical-align: -3px;
+                    position: relative;
+                    flex: 0 0 14px;
 
-                    &:before {            
+                    .info-tooltip {            
                         position: absolute;
-                        content : attr(data-tooltip);
                         opacity : 1;
                         background-color: $base;
                         color:white;
@@ -138,21 +162,20 @@
                         padding:15px 30px;
                         font-weight: 400;
                         width:458px;
-                        max-width: 100%;
-                        top:-150%;
-                        left:25px;
+                        top:-100%;
                         @include boxie-shadow(-8px,13px,51px,-12px,$base);
                         opacity: 0;
                         z-index:-1;
+                        left:-400px;
 
                         @include maxtablet{
-                            max-width: 60%;
-                            left:0;
+                            width:258px;
                         }
                     }
 
                     &:hover{
-                        &:before{
+
+                        .info-tooltip{
                             opacity: 1;
                             z-index:1000;
                         }
@@ -235,7 +258,7 @@
             }
         }
 
-        tr > th:nth-child(2) > .analyze-table__header-heading .analyze-table__header-heading__inner{
+        tr > th:nth-child(2) > .analyze-table__header-heading .analyze-table__header-inner{
             @include tablet{
                 background: white;
             }
@@ -256,6 +279,12 @@
                 padding-bottom: 1.6rem;
             }
             
+        }
+
+        tr > th{
+            @include maxtablet{
+                background: white;
+            }
         }
 
 
