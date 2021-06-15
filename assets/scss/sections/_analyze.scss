@@ -15,19 +15,15 @@
         border-spacing: 0px;
         border:none;
 
-        tbody{
+        &__cont{
             position: relative;
 
             &:after{
                 content: "";
                 width: calc(25% - 2rem);
-                height: calc(100% + 12.6rem);
-                /* Firefox */
-                height: -moz-calc(100% + 12.6rem);
-                /* WebKit */
-                height: -webkit-calc(100% + 12.6rem);
+                height: 100%;
                 position: absolute;
-                top: -12.6rem;
+                top: 0;
                 left: calc(25% + 1rem);
                 border-radius: 10px;
                 background: white;
@@ -94,6 +90,13 @@
                         border-radius: 10px 10px 0 0;
                         background: $darkbg;
                     }
+
+                &__inner{
+
+                    @include tablet{
+                        padding: 24px 0;
+                    }
+                }
 
                 img{
                     margin-bottom: 1.4rem;
@@ -258,7 +261,7 @@
             }
         }
 
-        tr > th:nth-child(2) > .analyze-table__header-heading .analyze-table__header-inner{
+        tr > th:nth-child(2) > .analyze-table__header-heading .analyze-table__header-heading__inner{
             @include tablet{
                 background: white;
             }
