@@ -355,89 +355,91 @@ get_header();
                 <?php endif;?>
                 <?php
                 if( have_rows('feature_row') ): ?>
-                    <table class="analyze-table">
-                        <thead>
-                            <tr class="analyze-table__header">
-                                <th>
-                                    <div class="analyze-table__header-heading--first">
-                                    </div>
-                                </th>
-                                <th>
-                                    <div class="analyze-table__header-heading">
-                                        <div class="analyze-table__header-inner">
-                                            <img src="<?php bloginfo('stylesheet_directory')?>/src/img/roi-logo.png">
-                                            <span>Roivenue 2.0</span>
-                                        </div>    
-                                    </div>
-                                </th>
-                                <th>
-                                    <div class="analyze-table__header-heading">
-                                        <div class="analyze-table__header-inner">
-                                            <img src="<?php bloginfo('stylesheet_directory')?>/src/img/roi-logo.png">
-                                            <span>Roivenue 1.0</span>
-                                        </div>    
-                                    </div>    
-                                </th>
-                                <th>
-                                    <div class="analyze-table__header-heading">
-                                        <div class="analyze-table__header-inner">
-                                        <img src="<?php bloginfo('stylesheet_directory')?>/src/img/analytics-logo.png">
-                                            <span>Google Analytics</span>
+                    <div class="analyze-table__cont">
+                        <table class="analyze-table">
+                            <thead>
+                                <tr class="analyze-table__header">
+                                    <th>
+                                        <div class="analyze-table__header-heading--first">
                                         </div>
-                                    </div>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            while( have_rows('feature_row') ): the_row(); ?>
-                                <tr class="analyze-table__body">
-                                    <?php if(get_sub_field('feature_name')):?>
-                                    <td><span class="analyze-table__body-property">
-                                        <span class="info-text"><?php the_sub_field('feature_name');?></span>
-                                        <?php if(get_sub_field('feature_content')):?>
-                                            <span class="info">
-                                                <img src="<?php bloginfo('stylesheet_directory')?>/src/img/info-icon.svg">
-                                                <span class="info-tooltip"><?php the_sub_field('feature_content');?></span>
-                                            </span>
-                                        <?php endif;?>
-                                    </td>        
-                                    <?php endif;?>
-                                    <td class="analyze-table__body-content">
-                                        <span class="analyze-table__body-text">
-                                            <?php
-                                            if(get_sub_field('feature_for_roi2')):
-                                                echo 'Yes';
-                                            else:
-                                                echo '-';
-                                            endif;?>
-                                        </span>
-                                    </td>
-                                    <td class="analyze-table__body-content">
-                                        <span class="analyze-table__body-text">
-                                            <?php
-                                            if(get_sub_field('feature_for_roi1')):
-                                                echo 'Yes';
-                                            else:
-                                                echo '-';
-                                            endif;?>
-                                        </span>
-                                    </td>
-                                    <td class="analyze-table__body-content">
-                                        <span class="analyze-table__body-text">
-                                            <?php
-                                            if(get_sub_field('feature_for_analytics')):
-                                                echo 'Yes';
-                                            else:
-                                                echo '-';
-                                            endif;?>
-                                        </span>
-                                    </td>
+                                    </th>
+                                    <th>
+                                        <div class="analyze-table__header-heading">
+                                            <div class="analyze-table__header-inner">
+                                                <img src="<?php bloginfo('stylesheet_directory')?>/src/img/roi-logo.png">
+                                                <span>Roivenue 2.0</span>
+                                            </div>    
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div class="analyze-table__header-heading">
+                                            <div class="analyze-table__header-inner">
+                                                <img src="<?php bloginfo('stylesheet_directory')?>/src/img/roi-logo.png">
+                                                <span>Roivenue 1.0</span>
+                                            </div>    
+                                        </div>    
+                                    </th>
+                                    <th>
+                                        <div class="analyze-table__header-heading">
+                                            <div class="analyze-table__header-inner">
+                                            <img src="<?php bloginfo('stylesheet_directory')?>/src/img/analytics-logo.png">
+                                                <span>Google Analytics</span>
+                                            </div>
+                                        </div>
+                                    </th>
                                 </tr>
-                            <?php 
-                            endwhile;?>
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                <?php
+                                while( have_rows('feature_row') ): the_row(); ?>
+                                    <tr class="analyze-table__body">
+                                        <?php if(get_sub_field('feature_name')):?>
+                                        <td><span class="analyze-table__body-property">
+                                            <span class="info-text"><?php the_sub_field('feature_name');?></span>
+                                            <?php if(get_sub_field('feature_content')):?>
+                                                <span class="info">
+                                                    <img src="<?php bloginfo('stylesheet_directory')?>/src/img/info-icon.svg">
+                                                    <span class="info-tooltip"><?php the_sub_field('feature_content');?></span>
+                                                </span>
+                                            <?php endif;?>
+                                        </td>        
+                                        <?php endif;?>
+                                        <td class="analyze-table__body-content">
+                                            <span class="analyze-table__body-text">
+                                                <?php
+                                                if(get_sub_field('feature_for_roi2')):
+                                                    echo 'Yes';
+                                                else:
+                                                    echo '-';
+                                                endif;?>
+                                            </span>
+                                        </td>
+                                        <td class="analyze-table__body-content">
+                                            <span class="analyze-table__body-text">
+                                                <?php
+                                                if(get_sub_field('feature_for_roi1')):
+                                                    echo 'Yes';
+                                                else:
+                                                    echo '-';
+                                                endif;?>
+                                            </span>
+                                        </td>
+                                        <td class="analyze-table__body-content">
+                                            <span class="analyze-table__body-text">
+                                                <?php
+                                                if(get_sub_field('feature_for_analytics')):
+                                                    echo 'Yes';
+                                                else:
+                                                    echo '-';
+                                                endif;?>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                <?php 
+                                endwhile;?>
+                            </tbody>
+                        </table>
+                    </div>    
                 <?php    
                 endif;?>        
                         
