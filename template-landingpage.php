@@ -74,7 +74,7 @@ get_header();
                 if( have_rows('features_subsection') ): ?>
                     <div class="section-feature__grid">
                         <?php
-                        $i = 1;
+                        $i = 0;
                         while( have_rows('features_subsection') ): the_row(); ?>
                             <?php
                             if( have_rows('features_text') ): ?>
@@ -108,11 +108,12 @@ get_header();
                         endwhile;
                     ?>
                     </div>
-                    <section class="section-solutions section-solutions--nopadding">
+                    <div class="swiper-container" id="feature-slider">
+                    <section class="section-solutions section-solutions--nopadding swiper-wrapper">
                         <?php
-                        $m = 1;
+                        $m = 0;
                         while( have_rows('features_subsection') ): the_row(); ?>
-                            <section role="region" class="subsection-solutions subsection-solutions--smallpadding subsection-solutions--feature <?php if($m == 1) echo 'subsection-solutions--show'?>" data-number="<?php echo $m;?>">
+                            <section role="region" class="swiper-slide subsection-solutions subsection-solutions--smallpadding subsection-solutions--feature<?php if($m == 1) echo 'subsection-solutions--show'?>" data-number="<?php echo $m;?>">
                                 <div class="subsection-solutions__container subsection-solutions__container--feature">
                                     <div class="subsection-solutions__text subsection-solutions__text--smaller">
                                         <?php
@@ -169,6 +170,11 @@ get_header();
                         $m++;
                     endwhile;?>
                     </section>
+                    <div class="swiper-pagination swiper-pagination--dark"></div>
+
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                    </div>
                 <?php
                 endif;?>                            
             <?php
