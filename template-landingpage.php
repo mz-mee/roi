@@ -37,8 +37,8 @@ get_header();
                     <?php
                         $image = get_sub_field('hero_video_bg');
                         $size = 'full'; ?>
-                    <video controls autoplay <?php if( $image ) : echo 'poster="'.wp_get_attachment_image_url( $image, $size ).'"'; endif;?>>
-                        <source src="<?php the_sub_field('hero_image');?>" type="video/mp4">
+                    <video width="1003" autoplay muted loop <?php if( $image ) : echo 'poster="'.wp_get_attachment_image_url( $image, $size ).'"'; endif;?>>
+                        <source src="<?php the_sub_field('hero_image');?>" type="video/webm">
                         Your browser does not support the video tag.
                     </video>
                 <?php
