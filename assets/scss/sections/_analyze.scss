@@ -51,8 +51,11 @@
             
             th{
                 padding:0 1rem;
-                
-                
+                position: sticky;
+                position: -webkit-sticky;
+                top: 0;
+                background: $darkbg;
+                z-index: 5;
 
                 @include tablet{
                     width: 25%;
@@ -78,6 +81,8 @@
             &-heading{
                 text-align: center;
                 padding: 1rem 0.5rem;
+                z-index:2;
+                position: relative;
                 
                     @include mobile{
                         padding:2rem;
