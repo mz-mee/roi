@@ -7,6 +7,16 @@
     color:white;
     padding:11.7rem 0;
 
+    .btn-link{
+        display: inline-block;
+        color: white;
+        margin-top: 10px;
+        text-decoration: underline;
+
+        &:hover{
+            text-decoration: none;
+        }
+    }
 
     &__container{
         @include flex();
