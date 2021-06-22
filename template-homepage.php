@@ -196,17 +196,24 @@ get_header();
                     <?php
                     if( have_rows('leader_items') ): ?>
                         <?php
-                        while( have_rows('leader_items') ): the_row(); ?>
+                        $c=0;
+                        while( have_rows('leader_items') ): the_row(); $c++; ?>
                         <?php
                         $image = get_sub_field('leader_image');
                         ?>
                         <div class="section-leader__awards-item">
+                            <?php if($c == 2): ?>
+                                <a href="https://www.g2.com/products/roivenue-attribution/reviews#reviews" target="_blank">
+                            <?php endif; ?>
                             <?php
                             $size = 'full'; // (thumbnail, medium, large, full or custom size)
                                 if( $image ) :
                                     echo wp_get_attachment_image( $image, $size );
                                 endif;
                             ?>
+                            <?php if($c == 2): ?>
+                                </a>
+                            <?php endif; ?>
                         </div>    
                         <?php
                         endwhile;
@@ -610,9 +617,12 @@ get_header();
                            <li class="roi-Footer-menu-item">
                   <a href="https://roivenue.com/privacy-policy/">Privacy Policy</a>
                </li>
-                           <li class="roi-Footer-menu-item">
-                  <a href="https://roivenue.com/wp-content/uploads/2020/04/ROIVENUE_Terms_and_Conditions-1.pdf">Terms of Service</a>
-               </li>
+                      <li class="roi-Footer-menu-item">
+                          <a href="https://roivenue.com/wp-content/uploads/2020/04/ROIVENUE_Terms_and_Conditions-1.pdf">Terms of Use</a>
+                      </li>
+                      <li class="roi-Footer-menu-item">
+                          <a href="https://roivenue.com/wp-content/uploads/2021/06/Terms-of-service.pdf">Terms of Service</a>
+                      </li>
                      </ul>
                      </div>
             		               <div class="roi-Footer-section roi-Footer-menu">
@@ -643,9 +653,6 @@ get_header();
                </li>
                            <li class="roi-Footer-menu-item">
                   <a href="https://resources.roivenue.com/articles-home-page">Blog Posts</a>
-               </li>
-                           <li class="roi-Footer-menu-item">
-                  <a href="https://roivenue.com/zdravi-ceskych-eshopu-covid-19/">COVID-19 #SpolečněToZvládneme</a>
                </li>
                      </ul>
                      </div>
