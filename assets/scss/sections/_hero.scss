@@ -5,12 +5,16 @@
     background-repeat: no-repeat, no-repeat;
     background-size:auto 100%;
     color:white;
-    padding:15.7rem 0;
+    padding:17.7rem 0;
+
+    @include desktop{
+        padding:12.7rem 0;
+    }
 
     .btn-link{
         display: inline-block;
         color: white;
-        margin-top: 10px;
+        margin-top: 20px;
         text-decoration: underline;
 
         &:hover{
@@ -18,7 +22,7 @@
         }
 
         position: absolute;
-        bottom: -12rem;
+        bottom: -14rem;
         left:50%;
         @include transform(-50%,0);
         white-space: nowrap;
