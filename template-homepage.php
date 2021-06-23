@@ -619,10 +619,7 @@ get_header();
                   <a href="https://roivenue.com/privacy-policy/">Privacy Policy</a>
                </li>
                       <li class="roi-Footer-menu-item">
-                          <a href="https://roivenue.com/wp-content/uploads/2020/04/ROIVENUE_Terms_and_Conditions-1.pdf">Terms of Use</a>
-                      </li>
-                      <li class="roi-Footer-menu-item">
-                          <a href="https://roivenue.com/wp-content/uploads/2021/06/Terms-of-service.pdf">Terms of Service</a>
+                          <a href="https://roivenue.com/general-terms-conditions">Terms of Use</a>
                       </li>
                      </ul>
                      </div>
@@ -646,15 +643,16 @@ get_header();
             		               <div class="roi-Footer-section roi-Footer-menu">
                            	         <h4 class="roi-Footer-title">RESOURCES</h4>
                   <ul class="roi-Footer-menu-items">
-                           <li class="roi-Footer-menu-item">
-                  <a href="https://resources.roivenue.com/roivenue-scorecard">ROIVENUE Scorecards</a>
-               </li>
+
                            <li class="roi-Footer-menu-item">
                   <a href="https://roivenue.com/articles-home-page/#case-studies" data-et-has-event-already="true">Case Studies</a>
                </li>
                            <li class="roi-Footer-menu-item">
                   <a href="https://resources.roivenue.com/articles-home-page">Blog Posts</a>
                </li>
+                      <li class="roi-Footer-menu-item">
+                          <a href="https://resources.roivenue.com/roivenue-scorecard">ROIVENUE Scorecards</a>
+                      </li>
                      </ul>
                      </div>
                      </div>
