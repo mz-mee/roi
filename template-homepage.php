@@ -128,7 +128,7 @@ get_header();
     </section>
     <section role="region" class="section section-clients">
         <div class="container section-clients__container">
-            <div class="swiper-container">
+            <div class="swiper-container" id="client_slider">
                 <div class="swiper-wrapper">
                 <?php
                 if( have_rows('clients') ): ?>
