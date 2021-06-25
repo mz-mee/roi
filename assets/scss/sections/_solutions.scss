@@ -235,3 +235,17 @@
         }
     }
 }
+
+#feature-slider{
+    display: none;
+
+    @include tablet{
+        display: block;
+    }
+}
+
+#feature-mobile{
+    @include tablet{
+        display: none;
+    }
+}

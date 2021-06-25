@@ -109,11 +109,77 @@ get_header();
                     ?>
                     </div>
                     <div class="swiper-container" id="feature-slider">
-                    <section class="section-solutions section-solutions--nopadding swiper-wrapper">
+                        <section class="section-solutions section-solutions--nopadding swiper-wrapper">
+                            <?php
+                            $m = 0;
+                            while( have_rows('features_subsection') ): the_row(); ?>
+                                <section role="region" class="swiper-slide subsection-solutions subsection-solutions--smallpadding subsection-solutions--feature<?php if($m == 1) echo 'subsection-solutions--show'?>" data-number="<?php echo $m;?>">
+                                    <div class="subsection-solutions__container subsection-solutions__container--feature">
+                                        <div class="subsection-solutions__text subsection-solutions__text--smaller">
+                                            <?php
+                                            if( have_rows('features_text') ): ?>
+                                                <?php
+                                                while( have_rows('features_text') ): the_row();
+                                                    ?>
+                                                    <?php
+                                                    if(get_sub_field('features_tag')):?>
+                                                        <div class="subsection-solutions__text-preicon">
+                                                        <?php
+                                                            if(get_sub_field('features_icon')):?>
+                                                            <?php $icon = get_sub_field('features_icon'); ?>
+                                                                <?php echo file_get_contents( $icon ); ?>
+                                                            <?php
+                                                            endif;
+                                                            ?>
+                                                            <span><?php the_sub_field('features_tag');?><span>
+                                                        </div>
+                                                    <?php
+                                                    endif;
+                                                    ?>
+
+                                                <?php
+                                                if(get_sub_field('features_heading')):?>
+                                                    <h3><?php the_sub_field('features_heading');?></h3>
+                                                <?php
+                                                endif;
+                                                ?>
+                                                <?php
+                                                if(get_sub_field('features_content')):?>
+                                                    <?php the_sub_field('features_content');?>
+                                                <?php
+                                                endif;
+                                                ?>
+                                                <?php
+                                                endwhile;
+                                            endif;?>
+                                        </div>
+                                        <?php
+                                        $image = get_sub_field('features_image');
+                                        ?>
+                                        <div class="subsection-solutions__pic">
+                                            <?php
+                                            $size = 'full'; // (thumbnail, medium, large, full or custom size)
+                                                if( $image ) :
+                                                    echo wp_get_attachment_image( $image, $size );
+                                                endif;
+                                            ?>
+                                        </div>
+                                    </div>
+                                </section>
+                            <?php
+                            $m++;
+                        endwhile;?>
+                        </section>
+                        <div class="swiper-pagination swiper-pagination--dark"></div>
+
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                    <section class="section-solutions section-solutions--nopadding" id="feature-mobile">
                         <?php
                         $m = 0;
                         while( have_rows('features_subsection') ): the_row(); ?>
-                            <section role="region" class="swiper-slide subsection-solutions subsection-solutions--smallpadding subsection-solutions--feature<?php if($m == 1) echo 'subsection-solutions--show'?>" data-number="<?php echo $m;?>">
+                            <section role="region" class="subsection-solutions subsection-solutions--smallpadding subsection-solutions--feature<?php if($m == 1) echo 'subsection-solutions--show'?>" data-number="<?php echo $m;?>">
                                 <div class="subsection-solutions__container subsection-solutions__container--feature">
                                     <div class="subsection-solutions__text subsection-solutions__text--smaller">
                                         <?php
@@ -124,9 +190,9 @@ get_header();
                                                 <?php
                                                 if(get_sub_field('features_tag')):?>
                                                     <div class="subsection-solutions__text-preicon">
-                                                    <?php 
+                                                        <?php
                                                         if(get_sub_field('features_icon')):?>
-                                                        <?php $icon = get_sub_field('features_icon'); ?>
+                                                            <?php $icon = get_sub_field('features_icon'); ?>
                                                             <?php echo file_get_contents( $icon ); ?>
                                                         <?php
                                                         endif;
@@ -136,19 +202,19 @@ get_header();
                                                 <?php
                                                 endif;
                                                 ?>
-                                            
-                                            <?php
-                                            if(get_sub_field('features_heading')):?>
-                                                <h3><?php the_sub_field('features_heading');?></h3>
-                                            <?php
-                                            endif;
-                                            ?>
-                                            <?php
-                                            if(get_sub_field('features_content')):?>
-                                                <?php the_sub_field('features_content');?>
-                                            <?php
-                                            endif;
-                                            ?>
+
+                                                <?php
+                                                if(get_sub_field('features_heading')):?>
+                                                    <h3><?php the_sub_field('features_heading');?></h3>
+                                                <?php
+                                                endif;
+                                                ?>
+                                                <?php
+                                                if(get_sub_field('features_content')):?>
+                                                    <?php the_sub_field('features_content');?>
+                                                <?php
+                                                endif;
+                                                ?>
                                             <?php
                                             endwhile;
                                         endif;?>
@@ -159,22 +225,17 @@ get_header();
                                     <div class="subsection-solutions__pic">
                                         <?php
                                         $size = 'full'; // (thumbnail, medium, large, full or custom size)
-                                            if( $image ) :
-                                                echo wp_get_attachment_image( $image, $size );
-                                            endif;
+                                        if( $image ) :
+                                            echo wp_get_attachment_image( $image, $size );
+                                        endif;
                                         ?>
                                     </div>
                                 </div>
-                            </section>  
-                        <?php
-                        $m++;
-                    endwhile;?>
+                            </section>
+                            <?php
+                            $m++;
+                        endwhile;?>
                     </section>
-                    <div class="swiper-pagination swiper-pagination--dark"></div>
-
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
-                    </div>
                 <?php
                 endif;?>                            
             <?php
