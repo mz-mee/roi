@@ -49,5 +49,15 @@
     .button{
         margin: 0 auto;
     }
-    
+
+    .btn-link{
+        display: inline-block;
+        color: white;
+        margin-top: 20px;
+        text-decoration: underline;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
 }
