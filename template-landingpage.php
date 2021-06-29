@@ -32,8 +32,9 @@ get_header();
                     endwhile; ?>
                 <?php
                 endif; ?>
-                <?php
-                if(get_sub_field('hero_image')):?>
+                <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script><lottie-player src="https://assets8.lottiefiles.com/private_files/lf30_mgihrohh.json" background="transparent" speed="1" style="width: 100%; max-width: 760px; margin: 20px auto;" loop autoplay></lottie-player>
+            <?php
+                /*if(get_sub_field('hero_image')):?>
                     <?php
                         $image = get_sub_field('hero_video_bg');
                         $size = 'full'; ?>
@@ -48,7 +49,7 @@ get_header();
                     if( $image ) :
                         echo wp_get_attachment_image( $image, $size );
                     endif;
-                endif;
+                endif;*/
                 if(get_sub_field('hero_button')):
                     $link = get_sub_field('hero_button');?>
                     <a href="<?php echo esc_url( $link['url'] ); ?>" class="btn btn-primary btn-primary--noshadow"><?php echo esc_attr( $link['title'] ); ?></a>
