@@ -42,8 +42,13 @@ get_header();
                         if(get_sub_field('hero_button')):
                             $link = get_sub_field('hero_button');?>
                             <a href="<?php echo esc_url( $link['url'] ); ?>" class="btn btn-primary btn-primary--noshadow"><?php echo esc_attr( $link['title'] ); ?></a>
-                            <a href="https://app.livestorm.co/roivenue/roivenue-pre-recorded-demo?type=detailed" target="_blank" class="btn-link">Or watch 3-minute demo now</a>
-                        <?php 
+                        <?php
+                        endif;?>
+                        <?php
+                        if(get_sub_field('hero_demo')):
+                            $link = get_sub_field('hero_demo');?>
+                            <a href="<?php echo esc_url( $link['url'] ); ?>" target="_blank" class="btn-link"><?php echo esc_attr( $link['title'] ); ?></a>
+                        <?php
                         endif;?>
                     </div>
                     <?php
