@@ -70,6 +70,18 @@ get_header();
 <section role="region" class="section section-feature section--grey">
     <div class="container">
         <?php
+
+        $hashes = [
+            'dashboard',
+            'process-explorer',
+            'dimensions-explorer',
+            'editor',
+            'attribution',
+            'budget-optimizer',
+            'data-exports',
+            'marketing-plans',
+        ];
+
         if( have_rows('features_copy') ): ?>
             <?php
             while( have_rows('features_copy') ): the_row(); ?>
@@ -91,7 +103,7 @@ get_header();
                                 while( have_rows('features_text') ): the_row();
                                     ?>
                                         <div class="section-feature__grid-item">
-                                            <div class="section-feature__grid-container <?php if($i == 1) echo 'section-feature__grid-container--active'?>" data-number="<?php echo $i;?>">
+                                            <div class="section-feature__grid-container <?php if($i == 1) echo 'section-feature__grid-container--active'?>" data-number="<?php echo $i;?>" data-hash="<?= $hashes[$i]; ?>">
                                                 <?php
                                                 if(get_sub_field('features_tag')):?>
                                                     <span><?php the_sub_field('features_tag');?></span>

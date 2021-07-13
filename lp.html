@@ -57,7 +57,7 @@
                 </div>
             </div>
             <div class="section-feature__grid-item">
-                <div class="section-feature__grid-container" data-number="1">
+                <div class="section-feature__grid-container" data-number="1" data-hash="process-explorer">
                     <span>Process explorer</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
                         <g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
@@ -127,7 +127,7 @@
                 </div>
             </div>
             <div class="section-feature__grid-item">
-                <div class="section-feature__grid-container" data-number="7">
+                <div class="section-feature__grid-container" data-number="7" data-hash="marketing-plans">
                     <span>Marketing plans</span>
                     <img src="assets/img/features/ico-marketing.svg">
                 </div>
@@ -650,6 +650,25 @@
                 feature_swiper.slideToLoop(parseInt(id));
             });
         }
+
+        var hashes = [
+            '#dashboard',
+            '#process-explorer',
+            '#editor',
+            '#attribution',
+            '#budget-optimizer',
+            '#data-exports',
+            '#marketing-plans',
+        ];
+
+        if(window.location.hash && $.inArray(window.location.hash, hashes)){
+            var hash = window.location.hash.replace('#', '');
+            $('div[data-hash="' + hash + '"]').click();
+            console.log($('div[data-hash="' + hash + '"]'));
+            $([document.documentElement, document.body]).animate({
+                scrollTop: $(".section-feature").offset().top
+            }, 1000);
+        }
     });
 
     
@@ -668,6 +687,10 @@
             var left = $(this).siblings('.info-text').outerWidth();
             $(tooltip).css({'top': "-" + height + 'px', 'left': "-" + left + 'px'});
         });
+    });
+
+    $(window).load(function (){
+
     });
 
 </script>

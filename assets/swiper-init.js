@@ -54,5 +54,25 @@ const swiper = new Swiper('#client_slider', {
                 feature_swiper.slideToLoop(parseInt(id));
             });
         }
+
+        var hashes = [
+            '#dashboard',
+            '#process-explorer',
+            '#dimensions-explorer',
+            '#editor',
+            '#attribution',
+            '#budget-optimizer',
+            '#data-exports',
+            '#marketing-plans',
+        ];
+
+        if(window.location.hash && jQuery.inArray(window.location.hash, hashes)){
+            var hash = window.location.hash.replace('#', '');
+            jQuery('div[data-hash="' + hash + '"]').click();
+            console.log(jQuery('div[data-hash="' + hash + '"]'));
+            jQuery([document.documentElement, document.body]).animate({
+                scrollTop: jQuery(".section-feature").offset().top
+            }, 1000);
+        }
     });
 
