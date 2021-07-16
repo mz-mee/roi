@@ -69,9 +69,8 @@ const swiper = new Swiper('#client_slider', {
         if(window.location.hash && jQuery.inArray(window.location.hash, hashes)){
             var hash = window.location.hash.replace('#', '');
             jQuery('div[data-hash="' + hash + '"]').click();
-            console.log(jQuery('div[data-hash="' + hash + '"]'));
             jQuery([document.documentElement, document.body]).animate({
-                scrollTop: jQuery(".section-feature").offset().top
+                scrollTop: jQuery(".section-feature__grid").offset().top
             }, 1000);
         }
     });
