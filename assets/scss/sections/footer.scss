@@ -30,6 +30,8 @@
       order: 1;
       flex: 0 0 auto;
       text-align: center;
+      display: flex;
+      justify-content: center;
 
       @include desktop{
         text-align: left;
@@ -44,6 +46,8 @@
 
     &:nth-child(2){
       order: 2;
+      display: flex;
+      justify-content: center;
 
       @include desktop{
         order: 3;
