@@ -20,7 +20,7 @@ if ( 'on' === et_get_option( 'divi_back_to_top', 'false' ) ) : ?>
 <?php endif;
 
 if ( ! is_page_template( 'page-template-blank.php' ) ) : ?>
-    <?php /*
+<?php /*
     <footer id="main-footer">
         <?php get_sidebar( 'footer' ); ?>
 
@@ -64,24 +64,67 @@ if ( ! is_page_template( 'page-template-blank.php' ) ) : ?>
 
 </div> <!-- #page-container -->
 
+<?php
 
+$homepage_id = 12409;
+$logo = get_field('logo', $homepage_id);
+$description = get_field('popis', $homepage_id);
+$socials_desktop = get_field('socials_desktop', $homepage_id);
+$socials_mobile = get_field('socials_mobile', $homepage_id);
+$badges = get_field('badges', $homepage_id);
+?>
 <div class="footer">
     <div class="container">
         <div class="footer__row">
             <div class="footer__col">
-                <?php dynamic_sidebar('sidebar-2'); ?>
+                <div>
+                    <?php if($logo): ?>
+                        <a href="<?php bloginfo('url'); ?>" class="footer__logo">
+                            <img src="<?= $logo; ?>">
+                        </a>
+                    <?php endif; ?>
+                    <?php if($description): ?>
+                        <div class="footer__desc">
+                            <?= $description; ?>
+                        </div>
+                    <?php endif; ?>
+                    <?php if($socials_desktop): ?>
+                        <div class="footer__socials footer__socials--desktop">
+                            <?php foreach($socials_desktop as $social): ?>
+                                <a target="_blank" href="<?= $social['social']['url']; ?>">
+                                    <img src="<?= $social['social']['ikona']; ?>">
+                                </a>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
+                    <?php if($socials_mobile): ?>
+                        <div class="footer__socials footer__socials--mobile">
+                            <?php foreach($socials_mobile as $social): ?>
+                                <a target="_blank" href="<?= $social['social']['url']; ?>">
+                                    <img src="<?= $social['social']['ikona']; ?>">
+                                </a>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
             </div>
             <div class="footer__col">
-                <?php dynamic_sidebar('sidebar-3'); ?>
+                <?php if($badges): ?>
+                    <div class="footer__badges">
+                        <?php $c=0; foreach($badges as $badge): $c++; ?>
+                            <img <?php if($badge['badge']['max_width']): ?>style="max-width: <?= $badge['badge']['max_width']; ?>px;"<?php endif; ?> src="<?= $badge['badge']['logo']; ?>"><?php if($c != count($badges)): ?><br><?php endif; ?>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
             </div>
             <div class="footer__col">
                 <div class="footer__menu">
                     <div class="footer__title">Products</div>
                     <?=
-                    wp_nav_menu([
-                        'theme_location' => 'footer_menu1',
-                        'container' => false,
-                    ]);
+                        wp_nav_menu([
+                            'theme_location' => 'footer_menu1',
+                            'container' => false,
+                        ]);
                     ?>
                 </div>
                 <div class="footer__menu">
